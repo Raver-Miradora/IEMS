@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Install custom local dependencies
+        shell: pwsh
+        run: |
+          $libs = Get-ChildItem -Path lib -Filter *.jar -ErrorAction SilentlyContinue
+          if ($libs) {
+            foreach ($jar in $libs) {
+              $parts = $jar.BaseName -split '--'
+              if ($parts.Length -eq 3) {
+                mvn install:install-file `
+                  "-Dfile=lib/$($jar.Name)" `
+                  "-DgroupId=$($parts[0])" `
+                  "-DartifactId=$($parts[1])" `
+                  "-Dversion=$($parts[2])" `
+                  "-Dpackaging=jar" `
+                  "-DgeneratePom=true" -q
+              }
+            }
+          }
+
+      - name: Build shaded JAR
+        run: mvn clean package -B -DskipTests
+
+      - name: Extract version from tag
+        id: version
+        shell: pwsh
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $ver = $tag -replace '^v', ''
+          echo "VERSION=$ver" >> $env:GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "IEMS ${{ github.ref_name }}"
+          body: |
+            ## IEMS ${{ github.ref_name }}
+
+            ### Installation
+            1. Download the JAR file below
+            2. Ensure Java 21+ is installed
+            3. Run: `java -jar IEMSmaven-${{ steps.version.outputs.VERSION }}.jar`
+
+            See [README](https://github.com/Raver-Miradora/IEMS#setup--installation) for full setup instructions.
+          files: |
+            target/IEMSmaven-*.jar
+          draft: false
+          prerelease: false
