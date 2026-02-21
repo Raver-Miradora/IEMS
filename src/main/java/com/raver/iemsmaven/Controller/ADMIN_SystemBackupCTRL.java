@@ -43,9 +43,9 @@ public class ADMIN_SystemBackupCTRL implements Initializable {
     @FXML private Label progressLabel;
 
     // --- Configuration ---
-    private static final String DB_NAME = "test19";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = ""; 
+    private static final String DB_NAME = Config.getDbName();
+    private static final String DB_USER = Config.getDbUser();
+    private static final String DB_PASSWORD = Config.getDbPassword();
     private static final String XAMPP_BIN_PATH = "C:\\xampp\\mysql\\bin\\";
     
     private static final String BACKUP_DIR = "C:\\IEMS_Backups\\";

@@ -37,6 +37,9 @@ package script.txt
 *.tmp
 *.bak
 
+# ===== Custom JARs (place in lib/ but don't commit binaries) =====
+lib/*.jar
+
 # ===== Binaries in resources (not source code) =====
 src/main/resources/Images/wps_office_inst.exe
 

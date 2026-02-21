@@ -20,7 +20,7 @@ public class Config {
             }
             properties.load(input);
             SECRET_KEY = properties.getProperty("database.secret.key");
-            DB_URL = properties.getProperty("database.url", "jdbc:mysql://localhost:3306/test19");
+            DB_URL = properties.getProperty("database.url", "jdbc:mysql://localhost:3306/iems_db");
             DB_USER = properties.getProperty("database.user", "root");
             DB_PASSWORD = properties.getProperty("database.password", "");
             
@@ -64,5 +64,23 @@ public class Config {
      */
     public static String getDbPassword() {
         return DB_PASSWORD;
+    }
+
+    /**
+     * Extracts the database name from the JDBC URL.
+     * For example, "jdbc:mysql://localhost:3306/iems_db" returns "iems_db".
+     * @return The database name.
+     */
+    public static String getDbName() {
+        String url = getDbUrl();
+        if (url != null && url.contains("/")) {
+            String name = url.substring(url.lastIndexOf('/') + 1);
+            // Strip query params if any (e.g., ?useSSL=false)
+            if (name.contains("?")) {
+                name = name.substring(0, name.indexOf('?'));
+            }
+            return name;
+        }
+        return "iems_db";
     }
 }

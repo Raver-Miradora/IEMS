@@ -6,6 +6,7 @@ A JavaFX desktop application for managing employee records, attendance tracking 
 ![JavaFX](https://img.shields.io/badge/JavaFX-21.0.2-blue)
 ![Maven](https://img.shields.io/badge/Maven-Build-red)
 ![MySQL](https://img.shields.io/badge/MySQL-8.x-blue)
+![Build](https://github.com/Raver-Miradora/IEMS/actions/workflows/build.yml/badge.svg)
 ![License](https://img.shields.io/badge/License-Proprietary-lightgrey)
 
 ---
@@ -55,6 +56,10 @@ IEMSmaven/
 ├── pom.xml                          # Maven build config
 ├── IEMS DB/                         # MySQL database schema (20 SQL files)
 ├── tessdata/                        # Tesseract OCR trained data
+├── lib/                             # Custom JARs (not on Maven Central)
+│   ├── README.md                    # JAR list and install instructions
+│   └── install-libs.ps1             # Auto-install script
+├── .github/workflows/build.yml      # CI/CD pipeline
 └── src/main/
     ├── java/com/raver/iemsmaven/
     │   ├── Main.java                # JavaFX Application entry point
@@ -99,15 +104,17 @@ cd IEMS
 
 ### 2. Set up the database
 
-Create a MySQL database named `test19` and import the schema files:
+Create a MySQL database named `iems_db` and import the schema files:
 
 ```bash
-mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS test19;"
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS iems_db;"
 cd "IEMS DB"
-for %f in (*.sql) do mysql -u root -p test19 < "%f"
+for %f in (*.sql) do mysql -u root -p iems_db < "%f"
 ```
 
 Or import them manually via MySQL Workbench or phpMyAdmin.
+
+> **Note:** If migrating from an older setup using `test19`, update your `config.properties` database URL accordingly.
 
 ### 3. Configure secrets
 
@@ -115,23 +122,24 @@ Or import them manually via MySQL Workbench or phpMyAdmin.
 copy src\main\resources\config.properties.example src\main\resources\config.properties
 ```
 
-Edit `src/main/resources/config.properties` and set your actual database secret key:
+Edit `src/main/resources/config.properties` and set your values:
 
 ```properties
 database.secret.key=YOUR_ACTUAL_SECRET_KEY_HERE
+database.url=jdbc:mysql://localhost:3306/iems_db
+database.user=root
+database.password=
 ```
 
 ### 4. Install custom dependencies
 
-Some dependencies are local JARs not available on Maven Central. Install them to your local Maven repository:
+Some dependencies are local JARs not available on Maven Central. Place them in the `lib/` folder using the naming convention `groupId--artifactId--version.jar` and run the install script:
 
-```bash
-mvn install:install-file -Dfile=path/to/pickerfx-1.2.0.jar -DgroupId=com.custom -DartifactId=pickerfx -Dversion=1.2.0 -Dpackaging=jar
-mvn install:install-file -Dfile=path/to/tree-showing-0.2.2.jar -DgroupId=com.custom -DartifactId=tree-showing -Dversion=0.2.2 -Dpackaging=jar
-mvn install:install-file -Dfile=path/to/unitfx-1.0.10.jar -DgroupId=com.custom -DartifactId=unitfx -Dversion=1.0.10 -Dpackaging=jar
-mvn install:install-file -Dfile=path/to/jmemorybuddy-0.5.1.jar -DgroupId=com.custom -DartifactId=jmemorybuddy -Dversion=0.5.1 -Dpackaging=jar
-mvn install:install-file -Dfile=path/to/dpuareu-1.0.0.jar -DgroupId=com.custom -DartifactId=dpuareu -Dversion=1.0.0 -Dpackaging=jar
+```powershell
+.\lib\install-libs.ps1
 ```
+
+See [`lib/README.md`](lib/README.md) for the full list of required JARs and manual install instructions.
 
 ### 5. Build & Run
 
