@@ -6,7 +6,6 @@ A JavaFX desktop application for managing employee records, attendance tracking 
 ![JavaFX](https://img.shields.io/badge/JavaFX-21.0.2-blue)
 ![Maven](https://img.shields.io/badge/Maven-Build-red)
 ![MySQL](https://img.shields.io/badge/MySQL-8.x-blue)
-![Build](https://github.com/Raver-Miradora/IEMS/actions/workflows/build.yml/badge.svg)
 ![License](https://img.shields.io/badge/License-Proprietary-lightgrey)
 
 ---
@@ -153,29 +152,6 @@ mvn javafx:run
 # Package as Windows installer (MSI)
 mvn clean package jpackage:jpackage
 ```
-
-## Database Schema
-
-The `IEMS DB/` folder contains individual SQL files for each table:
-
-| Table | Description |
-|---|---|
-| `user` | Employee/admin accounts and personal info |
-| `attendance` | Time-in / time-out records |
-| `fingerprint` | Biometric fingerprint templates |
-| `department` | Department definitions |
-| `position` | Job positions |
-| `shift` | Work shift configurations |
-| `assignment` | Employee task assignments |
-| `timeoff` / `user_timeoff` | Leave/time-off types and requests |
-| `special_calendar` / `user_calendar` | Holidays and custom calendar events |
-| `notices` / `quotes` | Daily notices and motivational quotes |
-| `child` | Employee children records (for PDS) |
-| `civil_service_eligibility` | CS eligibility records |
-| `educational_background` | Education history |
-| `work_experience` | Work history |
-| `employee_documents` | Uploaded documents |
-| `activity_logs` | System audit trail |
 
 ## License
 
