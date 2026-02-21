@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.dlsc.gemsfx.daterange.DateRangePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1060.0" prefWidth="1640.0" stylesheets="@../Style/admin_pane.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.ADMIN_OtAuthorizationCTRL">
+   <children>
+      <Pane layoutX="23.0" layoutY="21.0" prefHeight="1018.0" prefWidth="1596.0">
+         <children>
+            <Pane layoutX="-4.0" layoutY="5.0" prefHeight="999.0" prefWidth="467.0" styleClass="tilePane">
+               <children>
+                  <VBox layoutX="34.0" layoutY="132.0" prefHeight="818.0" prefWidth="408.0" spacing="10.0">
+                     <children>
+                        <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #3b3b3b;" text="Filter by Department:" />
+                        <ComboBox fx:id="departmentCombo" prefHeight="38.0" prefWidth="408.0" style="-fx-font-size: 18px;" />
+                        <TableView fx:id="employeeTable" prefHeight="730.0" prefWidth="408.0" style="-fx-font-size: 18px;">
+                           <columns>
+                              <TableColumn fx:id="col_empId" prefWidth="120.0" text="Emp. ID" />
+                              <TableColumn fx:id="col_empName" prefWidth="285.0" text="Name" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <Label layoutX="34.0" layoutY="17.0" prefHeight="53.0" prefWidth="408.0" text="OT Authorization" textFill="#f8f4f4">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+
+            <Pane layoutX="471.0" layoutY="7.0" prefHeight="999.0" prefWidth="1118.0" styleClass="tilePane">
+               <children>
+                  <ImageView fx:id="userImageView" fitHeight="87.0" fitWidth="102.0" layoutX="28.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/default_user_img.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="userNameLabel" layoutX="151.0" layoutY="48.0" prefHeight="53.0" prefWidth="634.0" text="Select an Employee" textFill="#f8f4f4">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="153.0" layoutY="30.0" text="Managing Overtime For:" textFill="#f8f4f4">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+
+                  <HBox alignment="CENTER_LEFT" layoutX="28.0" layoutY="140.0" spacing="20.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Select Date Range:">
+                                 <font><Font size="16.0" /></font>
+                              </Label>
+                              <DateRangePicker fx:id="dateRangePicker" prefHeight="50.0" prefWidth="350.0" style="-fx-font-size: 18px;" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="authorizeBtn" mnemonicParsing="false" onAction="#addAuthorization" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18px;" text="AUTHORIZE">
+                           <VBox.margin><Insets top="25.0" /></VBox.margin>
+                        </Button>
+                        <Button fx:id="revokeBtn" mnemonicParsing="false" onAction="#revokeAuthorization" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18px;" text="REVOKE SELECTED">
+                           <VBox.margin><Insets top="25.0" /></VBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+
+                  <TableView fx:id="otHistoryTable" layoutX="28.0" layoutY="220.0" onMouseClicked="#handleTableClick" prefHeight="740.0" prefWidth="1060.0" style="-fx-font-size: 18px;">
+                     <columns>
+                        <TableColumn fx:id="col_authDate" prefWidth="400.0" style="-fx-alignment: CENTER;" text="Authorized Date" />
+                        <TableColumn fx:id="col_status" prefWidth="300.0" style="-fx-alignment: CENTER;" text="Status" />
+                     </columns>
+                  </TableView>
+                  <CheckBox fx:id="showHistoryBox" layoutX="796.0" layoutY="161.0" onAction="#loadOtHistory" prefHeight="29.0" prefWidth="150.0" text="Show Past Dates">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

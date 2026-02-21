@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" prefHeight="1060.0" prefWidth="1640.0" style="-fx-background-color: -color-base;" stylesheets="@../Style/admin_pane.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.ADMIN_EditEmpCTRL">
+   <children>
+      <ScrollPane fitToWidth="true" layoutX="63.0" layoutY="54.0" prefHeight="940.0" prefWidth="1526.0">
+         <content>
+            <VBox spacing="25.0" style="-fx-background-color: white; -fx-padding: 25;">
+               <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #2c3e50; -fx-padding: 20; -fx-background-radius: 10;">
+                  <ImageView fx:id="userImageView" fitHeight="40.0" fitWidth="40.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/default_user_img.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox spacing="5.0">
+                     <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;" text="Edit Employee Information" />
+                     <Label style="-fx-font-size: 14px; -fx-text-fill: #ecf0f1;" text="Update employee information and save changes" />
+                  </VBox>
+               </HBox>
+
+               <HBox alignment="TOP_LEFT" spacing="30.0">
+                  <!-- Left Column (Main Form) -->
+                  <VBox prefWidth="900.0" spacing="25.0">
+                     <!-- Personal Information -->
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="I. PERSONAL INFORMATION" />
+                         
+                         <GridPane hgap="15.0" vgap="12.0">
+                           <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Surname" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="First Name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                           
+                           <TextField fx:id="surnameField" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                           <TextField fx:id="firstNameField" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Middle Name" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Name Extension" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           
+                           <TextField fx:id="middleNameField" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                           <ChoiceBox fx:id="suffixChoiceBox" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Date of Birth" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Place of Birth" GridPane.rowIndex="4" />
+                           
+                           <DatePicker fx:id="birthDatePicker" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           <TextField fx:id="placeOfBirthField" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.rowIndex="5" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Sex" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Height" GridPane.rowIndex="6" />
+                           
+                           <ChoiceBox fx:id="sexChoiceBox" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                           <TextField fx:id="heightField" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.rowIndex="7" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Civil Status" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Weight" GridPane.rowIndex="8" />
+                           
+                           <ChoiceBox fx:id="civilStatusChoiceBox" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                           <TextField fx:id="weightField" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.rowIndex="9" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Blood Type" GridPane.rowIndex="10" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Citizenship" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                           
+                           <ChoiceBox fx:id="bloodTypeChoiceBox" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.rowIndex="11" />
+                           <ChoiceBox fx:id="citizenshipChoiceBox" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                         </GridPane>
+                     </VBox>
+
+                     <!-- Contact Information -->
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Contact Information" />
+                         
+                         <GridPane hgap="15.0" vgap="12.0">
+                           <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Mobile No." GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Telephone No." GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                           
+                           <TextField fx:id="mobileNoField" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                           <TextField fx:id="telephoneNoField" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Email Address" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                           <TextField fx:id="emailField" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                         </GridPane>
+                     </VBox>
+
+                     <!-- Family Background -->
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="II. FAMILY BACKGROUND" />
+                         
+                         <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Spouse Information" />
+                            <Button fx:id="addSpouseBtn" mnemonicParsing="false" onAction="#addSpouse" style="-fx-font-size: 12px; -fx-pref-height: 25;" text="Add Spouse" />
+                         </HBox>
+                         <TableView fx:id="spouseTable" prefHeight="100.0" prefWidth="850.0" editable="true">
+                            <columns>
+                                <TableColumn fx:id="spouseNameCol" prefWidth="150.0" text="Name" />
+                                <TableColumn fx:id="spouseOccupationCol" prefWidth="120.0" text="Occupation" />
+                                <TableColumn fx:id="spouseEmployerCol" prefWidth="120.0" text="Employer" />
+                                <TableColumn fx:id="spouseBusinessAddressCol" prefWidth="200.0" text="Business Address" />
+                                <TableColumn fx:id="spouseTelephoneCol" prefWidth="100.0" text="Telephone" />
+                                <TableColumn fx:id="spouseActionsCol" prefWidth="80.0" text="Actions" />
+                            </columns>
+                         </TableView>
+                         
+                         <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-padding-top: 15;" text="Parents Information" />
+                            <Button fx:id="addParentBtn" mnemonicParsing="false" onAction="#addParent" style="-fx-font-size: 12px; -fx-pref-height: 25;" text="Add Parent" />
+                         </HBox>
+                         <TableView fx:id="parentsTable" prefHeight="80.0" prefWidth="850.0" editable="true">
+                            <columns>
+                                <TableColumn fx:id="parentTypeCol" prefWidth="100.0" text="Parent" />
+                                <TableColumn fx:id="parentNameCol" prefWidth="300.0" text="Full Name" />
+                                <TableColumn fx:id="parentActionsCol" prefWidth="80.0" text="Actions" />
+                            </columns>
+                         </TableView>
+                         
+                         <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-padding-top: 15;" text="Children Information" />
+                            <Button fx:id="addChildBtn" mnemonicParsing="false" onAction="#addChild" style="-fx-font-size: 12px; -fx-pref-height: 25;" text="Add Child" />
+                         </HBox>
+                         <TableView fx:id="childrenTable" prefHeight="120.0" prefWidth="850.0" editable="true">
+                            <columns>
+                                <TableColumn fx:id="childNameCol" prefWidth="200.0" text="Child's Name" />
+                                <TableColumn fx:id="childDobCol" prefWidth="150.0" text="Date of Birth" />
+                                <TableColumn fx:id="childActionsCol" prefWidth="80.0" text="Actions" />
+                            </columns>
+                         </TableView>
+                     </VBox>
+
+                     <!-- Educational Background -->
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="III. EDUCATIONAL BACKGROUND" />
+                            <Button fx:id="addEducationBtn" mnemonicParsing="false" onAction="#addEducation" style="-fx-font-size: 12px; -fx-pref-height: 25;" text="Add Education" />
+                         </HBox>
+                         <TableView fx:id="educationTable" prefHeight="200.0" prefWidth="850.0" editable="true">
+                            <columns>
+                                <TableColumn fx:id="eduLevelCol" prefWidth="80.0" text="Level" />
+                                <TableColumn fx:id="eduSchoolCol" prefWidth="150.0" text="School Name" />
+                                <TableColumn fx:id="eduDegreeCol" prefWidth="120.0" text="Degree/Course" />
+                                <TableColumn fx:id="eduPeriodCol" prefWidth="120.0" text="Period" />
+                                <TableColumn fx:id="eduUnitsCol" prefWidth="80.0" text="Units" />
+                                <TableColumn fx:id="eduYearGradCol" prefWidth="80.0" text="Year Graduated" />
+                                <TableColumn fx:id="eduHonorsCol" prefWidth="120.0" text="Honors" />
+                                <TableColumn fx:id="eduActionsCol" prefWidth="80.0" text="Actions" />
+                            </columns>
+                         </TableView>
+                     </VBox>
+
+                     <!-- Civil Service Eligibility -->
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="IV. CIVIL SERVICE ELIGIBILITY" />
+                            <Button fx:id="addEligibilityBtn" mnemonicParsing="false" onAction="#addEligibility" style="-fx-font-size: 12px; -fx-pref-height: 25;" text="Add Eligibility" />
+                         </HBox>
+                         <TableView fx:id="eligibilityTable" prefHeight="150.0" prefWidth="850.0" editable="true">
+                            <columns>
+                                <TableColumn fx:id="eligibilityNameCol" prefWidth="150.0" text="Eligibility Name" />
+                                <TableColumn fx:id="eligibilityRatingCol" prefWidth="80.0" text="Rating" />
+                                <TableColumn fx:id="eligibilityExamDateCol" prefWidth="100.0" text="Exam Date" />
+                                <TableColumn fx:id="eligibilityExamPlaceCol" prefWidth="120.0" text="Exam Place" />
+                                <TableColumn fx:id="eligibilityLicenseCol" prefWidth="100.0" text="License Number" />
+                                <TableColumn fx:id="eligibilityValidityCol" prefWidth="100.0" text="Validity Date" />
+                                <TableColumn fx:id="eligibilityActionsCol" prefWidth="80.0" text="Actions" />
+                            </columns>
+                         </TableView>
+                     </VBox>
+
+                     <!-- Work Experience -->
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="V. WORK EXPERIENCE" />
+                            <Button fx:id="addWorkExperienceBtn" mnemonicParsing="false" onAction="#addWorkExperience" style="-fx-font-size: 12px; -fx-pref-height: 25;" text="Add Work Experience" />
+                         </HBox>
+                         <TableView fx:id="workExperienceTable" prefHeight="200.0" prefWidth="850.0" editable="true">
+                            <columns>
+                                <TableColumn fx:id="workPeriodCol" prefWidth="120.0" text="Period" />
+                                <TableColumn fx:id="workPositionCol" prefWidth="150.0" text="Position Title" />
+                                <TableColumn fx:id="workCompanyCol" prefWidth="120.0" text="Company/Department" />
+                                <TableColumn fx:id="workSalaryCol" prefWidth="100.0" text="Monthly Salary" />
+                                <TableColumn fx:id="workGradeCol" prefWidth="80.0" text="Salary Grade" />
+                                <TableColumn fx:id="workStatusCol" prefWidth="120.0" text="Appointment Status" />
+                                <TableColumn fx:id="workGovServiceCol" prefWidth="80.0" text="Gov't Service" />
+                                <TableColumn fx:id="workActionsCol" prefWidth="80.0" text="Actions" />
+                            </columns>
+                         </TableView>
+                     </VBox>
+                  </VBox>
+
+                  <!-- Right Column (Side Sections) -->
+                  <VBox prefWidth="515.0" spacing="25.0">
+                     <!-- Government IDs -->
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Government IDs" />
+                        
+                        <VBox spacing="10.0">
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="GSIS ID:" />
+                           <TextField fx:id="gsisIdField" style="-fx-font-size: 14px;" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="PAG-IBIG ID:" />
+                           <TextField fx:id="pagibigIdField" style="-fx-font-size: 14px;" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="PhilHealth No.:" />
+                           <TextField fx:id="philhealthNoField" style="-fx-font-size: 14px;" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="SSS No.:" />
+                           <TextField fx:id="sssNoField" style="-fx-font-size: 14px;" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="TIN No.:" />
+                           <TextField fx:id="tinNoField" style="-fx-font-size: 14px;" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Agency Employee No.:" />
+                           <TextField fx:id="agencyEmployeeNoField" style="-fx-font-size: 14px;" />
+                        </VBox>
+                     </VBox>
+
+                     <!-- Residential Address -->
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Residential Address" />
+                         
+                         <GridPane hgap="15.0" vgap="10.0">
+                           <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="House/Block/Lot No." GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Street" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                           
+                           <TextField fx:id="residentialHouseNoField" style="-fx-font-size: 14px;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                           <TextField fx:id="residentialStreetField" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Barangay" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="City/Municipality" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           
+                           <TextField fx:id="residentialBarangayField" style="-fx-font-size: 14px;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                           <TextField fx:id="residentialCityField" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Province" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="ZIP CODE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           
+                           <TextField fx:id="residentialProvinceField" style="-fx-font-size: 14px;" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                           <TextField fx:id="residentialZipCodeField" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                         </GridPane>
+                     </VBox>
+
+                     <!-- Permanent Address -->
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Permanent Address" />
+                         
+                         <GridPane hgap="15.0" vgap="10.0">
+                           <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="House/Block/Lot No." GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Street" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                           
+                           <TextField fx:id="permanentHouseNoField" style="-fx-font-size: 14px;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                           <TextField fx:id="permanentStreetField" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Barangay" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="City/Municipality" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           
+                           <TextField fx:id="permanentBarangayField" style="-fx-font-size: 14px;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                           <TextField fx:id="permanentCityField" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Province" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="ZIP CODE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           
+                           <TextField fx:id="permanentProvinceField" style="-fx-font-size: 14px;" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                           <TextField fx:id="permanentZipCodeField" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                         </GridPane>
+                     </VBox>
+
+                    <!-- Current Assignment -->
+                        <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                           <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Current Assignment" />
+
+                           <VBox spacing="12.0">
+                              <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Department" />
+                              <ChoiceBox fx:id="departmentChoiceBox" prefHeight="35.0" prefWidth="300.0" style="-fx-font-size: 14px;" />
+
+                              <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Position" />
+                              <ChoiceBox fx:id="positionChoiceBox" prefHeight="35.0" prefWidth="300.0" style="-fx-font-size: 14px;" />
+
+                              <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Shift" />
+                              <ChoiceBox fx:id="shiftChoiceBox" prefHeight="35.0" prefWidth="300.0" style="-fx-font-size: 14px;" />
+
+                              <HBox spacing="15.0">
+                                 <VBox spacing="5.0">
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Start Time" />
+                                    <TextField fx:id="startTimeField" promptText="HH:MM (24h)" style="-fx-font-size: 14px; -fx-pref-height: 35; -fx-pref-width: 140;" />
+                                 </VBox>
+                                 <VBox spacing="5.0">
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="End Time" />
+                                    <TextField fx:id="endTimeField" promptText="HH:MM (24h)" style="-fx-font-size: 14px; -fx-pref-height: 35; -fx-pref-width: 140;" />
+                                 </VBox>
+                              </HBox>
+                           </VBox>
+                        </VBox>
+
+                     <!-- User Photo -->
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="User Photo" />
+                        
+                        <VBox alignment="CENTER" spacing="15.0">
+                           <Pane prefHeight="180.0" prefWidth="180.0" style="-fx-border-color: #cccccc; -fx-border-width: 2px; -fx-background-color: white;">
+                              <children>
+                                 <ImageView fx:id="userImageViewLarge" fitHeight="160.0" fitWidth="160.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../Images/default_user_img.jpg" />
+                                    </image>
+                                 </ImageView>
+                              </children>
+                           </Pane>
+                           <Button fx:id="selectImageBtn" mnemonicParsing="false" onAction="#selectImage" style="-fx-font-size: 12px; -fx-pref-height: 30;" text="Select Image" />
+                        </VBox>
+                     </VBox>
+                     <!-- Documents Section -->
+                    <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Documents" />
+
+                        <VBox fx:id="documentsContainer" spacing="10.0" />
+
+                        <VBox spacing="5.0">
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Google Drive URL" />
+                            <TextField fx:id="googleDriveUrlField" promptText="https://drive.google.com/..." style="-fx-font-size: 14px; -fx-pref-height: 35;" />
+                        </VBox>
+                    </VBox>
+                  </VBox>
+               </HBox>
+
+               <HBox alignment="CENTER" spacing="20.0" style="-fx-padding: 20 0 0 0;">
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveEmployee" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-pref-height: 40; -fx-pref-width: 150;" text="Save Changes" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelEdit" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-pref-height: 40; -fx-pref-width: 150;" text="Cancel" />
+               </HBox>
+
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

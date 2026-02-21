@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<HBox fx:id="childRowHBox" alignment="CENTER_LEFT" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.ADMIN_RowChildCTRL">
+   <children>
+      <TextField fx:id="childNameField" promptText="Child's Full Name" HBox.hgrow="ALWAYS" />
+      <DatePicker fx:id="childDobPicker" prefWidth="150.0" promptText="Date of Birth" />
+      <Button fx:id="removeChildButton" onAction="#handleRemoveChild" style="-fx-background-color: #e74c3c; -fx-padding: 5 8;" textFill="white">
+         <graphic>
+              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     </image>
+             </ImageView>
+         </graphic>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="2.0" top="2.0" />
+   </padding>
+</HBox>

@@ -1,0 +1,513 @@
+    /*
+    Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+    Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+    */
+    /*
+        Created on : Dec 1, 2023, 6:02:14 AM
+        Author     : User
+    */
+
+    .root {
+      -color-background-dark1: #B3C0C6;
+      -color-background: #D0D8DC;
+      -color-accent-primary: linear-gradient(to bottom, #a3f8c2, #81ecae, #5ddc99);
+      -color-accent-primary-to-bottom-right: linear-gradient(to bottom right, #a3f8c2, #81ecae, #5ddc99);
+      -color-accent-secondary: #c9ffec;
+      -color-base: white;
+      -color-base-gradient: linear-gradient(to bottom right, -color-base, #f0f0f0);
+      -color-base-darker1: #e6e6e6;
+      -color-text: #3b3b3b;
+      -color-red: #f44336;
+      -color-red-gradient: linear-gradient(to bottom, #ff6f66, #f44336, #d32f2f);
+    }
+
+    .label {
+        -fx-text-fill: -color-text;
+        -fx-font-family: "Arial";
+    }
+
+
+    .navAnchorPane {
+        -fx-background-color: -color-base;
+    }
+
+    .contentPane {
+        -fx-background-color: -color-background;
+        -fx-border-color: -color-base;
+        -fx-background-radius: 20;
+        -fx-border-radius: 10px;
+        -fx-border-width: 10;
+    }
+
+    .tilePane {
+        -fx-background-color: -color-base-gradient;
+        -fx-background-radius: 10;
+       /* -fx-border-width: 2;
+        -fx-border-color: -color-background;
+        -fx-border-radius: 8;*/
+    }
+
+    .outline {
+      -fx-border-width: 2;
+        -fx-border-color: -color-background;
+        -fx-border-radius: 8;
+    }
+
+    .headerPane {
+        -fx-background-color: -color-accent-primary;
+        -fx-background-radius: 10;
+    }
+
+    #navVbox .button {
+        -fx-background-color: transparent;
+        -fx-border: none;
+        -fx-text-fill: -color-text;
+        -fx-font-size: 16px;
+        -fx-font-weight: bold;
+        -fx-border-radius: 100px;
+        -fx-alignment: CENTER_LEFT;
+    }
+
+    #navVbox .navButton {
+        -fx-background-color: transparent;
+        -fx-border: none;
+        -fx-border-width: 0;
+        -fx-border-color: transparent;
+        -fx-text-fill: -color-text;
+        -fx-font-size: 16px;
+        -fx-font-weight: bold;
+        -fx-border-radius: 100px;
+        -fx-alignment: CENTER_LEFT;
+        -fx-pref-height: 50px;
+        -fx-pref-width: 220px;
+        -fx-min-height: 50px;
+        -fx-max-height: 50px;
+        -fx-min-width: 220px;
+        -fx-max-width: 220px;
+    }
+    #navVbox .navButton:hover {
+        -fx-background-color: -color-accent-primary;
+        -fx-font-weight: bold;
+    }
+    #navVbox .button:hover {
+        -fx-background-color: -color-accent-primary;
+        -fx-font-weight: bold;
+    }
+
+    #navVbox .navButton-pressed {
+        -fx-background-color: linear-gradient(to bottom, #a3f8c2, #81ecae, #5ddc99);
+        -fx-text-fill: #3b3b3b;
+        -fx-border: none;
+        -fx-border-width: 0;
+        -fx-border-color: transparent;
+        -fx-font-size: 16px;
+        -fx-font-weight: bold;
+        -fx-border-radius: 100px;
+        -fx-alignment: CENTER_LEFT;
+        -fx-pref-height: 50px;
+        -fx-pref-width: 220px;
+        -fx-min-height: 50px;
+        -fx-max-height: 50px;
+        -fx-min-width: 220px;
+        -fx-max-width: 220px;
+    }
+    /*#navVbox .label {
+               -fx-text-fill: #1a1a1a;
+               *//*-fx-font-size: 14px;*//*
+               -fx-font-weight: bold;
+               }*/
+
+               #navVbox #labelTitleUp {
+                   -fx-text-fill: #1a1a1a;
+                   /*-fx-font-size: 14px;*/
+                   -fx-font-weight: bold;
+                   }
+
+    #navVbox {
+        -fx-background-color: -color-base;
+        -fx-border-color: -color-base;
+        -fx-background-radius: 20;
+        -fx-border-radius: 10px;
+        /*-fx-border-width: 10;*/
+    }
+    
+    #navVbox .subNavButton {
+    -fx-background-color: -color-base; /* Transparent background */
+    -fx-text-fill: -color-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    
+    /* This is the default border you described */
+    -fx-border-width: 2px;
+    -fx-border-color: -color-accent-primary;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px; /* Match the border radius */
+
+    /* Let the FXML control the size (35px) - DO NOT set pref-height */
+}
+#navVbox .subNavButton:hover {
+     -fx-background-color: -color-accent-primary; /* Filled on hover */
+     -fx-border-color: transparent; /* Hide border on hover */
+}
+
+/* This is the new "pressed" style for sub-buttons */
+#navVbox .subNavButton-pressed {
+    -fx-background-color: -color-accent-primary; /* This is the "filled color" */
+    -fx-text-fill: -color-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+
+    /* No border when pressed (it's filled) */
+    -fx-border-width: 2px;
+    -fx-border-color: transparent; 
+    
+    /* This is the "little border radius" you wanted (7px) */
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
+
+    /* * This is the most important part: 
+     * We DO NOT set -fx-pref-height, so it respects the 35px height
+     * from the FXML file and does not jump to 50px.
+     */
+}
+
+
+
+
+    #logOutAdminBtn:hover {
+        -fx-background-color: #f44336;
+        -fx-text-fill: white;
+    }
+
+
+
+
+
+    /*#navVbox .titled-pane > *.content{
+        -fx-background-color: transparent ;
+        -fx-border-color: transparent ;
+
+    }*/
+
+    #navVbox .titled-pane > *.content{
+        -fx-background-color: transparent ;
+        -fx-border-color: transparent ;
+
+    }
+
+    #navVbox #navAccordion {
+        -fx-background-color: transparent;
+    }
+
+    #navVbox .titled-pane .title {
+        -fx-background-color: transparent;
+        -fx-text-fill: #1a1a1a;
+        /*-fx-text-fill: white;*/
+        -fx-font-size: 14px;
+        -fx-font-weight: bold;
+    }
+
+    #navVbox .titled-pane .arrow {
+        -fx-background-color: #1a1a1a;
+        /*-fx-background-color: white;*/
+        -fx-alignment: center-right;
+
+    }
+
+    #navVbox .titled-pane > .title > *.text {
+        /*-fx-fill: #fff;*/
+        -fx-fill: #1a1a1a;
+    }
+
+
+    #navVbox .titled-pane > .title > .arrow-button > .arrow-container > .arrow > .arrow-icon {
+        -fx-background-color: transparent;
+        -fx-background-image: url('/Images/calendar_icon.png');
+        -fx-background-size: cover;
+        -fx-background-position: center;
+    }
+
+
+    .button {
+        -fx-background-color: -color-base;
+        -fx-border: none;
+        -fx-color: -color-;
+        -fx-font-weight: bold;
+        -fx-background-radius: 7;
+        -fx-text-fill: -color-text;
+
+        -fx-alignment: CENTER;
+
+        -fx-border-width: 2px;
+            -fx-border-color: -color-accent-primary;
+            -fx-background-radius: 10px;
+            -fx-border-radius: 7px;
+    }
+
+    .button:hover {
+        -fx-background-color: -color-accent-primary;
+    }
+
+
+
+    /*table view*/
+    .table-view{
+        -fx-background-color: -color-base;
+        -fx-padding:0px;
+        -fx-border-color: -color-background;
+        /*-fx-border-color:linear-gradient(to bottom right, #2f3f89,#9231b5);*/
+        -fx-border-width:2px;
+        -fx-border-radius:8px;
+        -fx-background-radius: 10px;
+    }
+    .table-view .table-column{
+        /*-fx-alignment: CENTER;*/
+    }
+    .table-view .column-header-background{
+        -fx-background-color: -color-base-darker1;
+        /*-fx-background-color: -color-accent-primary;*/
+        -fx-background-radius:8px 8px 0px 0px;
+        -fx-background-inset: 0 0 0 0;
+        -fx-border-width: 10px;
+    }
+    .table-view .column-header, .filter{
+        -fx-background-color:transparent;
+        -fx-size:30px;
+    }
+    .table-view .column-header .label{
+        -fx-text-fill: -color-text;
+        -fx-font-family:"Arial";
+    }
+
+    .outline-table {
+     -fx-border-width:2px;
+     -fx-border-color: transparent;
+     -fx-background-color: -color-base;
+
+    }
+
+    .outline-table .column-header {
+        -fx-alignment: left;
+    }
+
+    .outline-table .column-header-background{
+        -fx-background-color: transparent;
+        /*-fx-background-color: -color-accent-primary;*/
+        -fx-background-radius:8px 8px 0px 0px;
+        -fx-background-inset: 0 0 0 0;
+        -fx-border-width: 10px;
+
+        -fx-max-height: 0;
+            -fx-pref-height: 0;
+            -fx-min-height: 0;
+    }
+
+    .outline-table .scroll-bar * {
+        -fx-min-width: 0;
+        -fx-pref-width: 0;
+        -fx-max-width: 0;
+
+        -fx-min-height: 0;
+        -fx-pref-height: 0;
+        -fx-max-height: 0;
+    }
+
+    .outline-table .table-row-cell:odd,
+     .outline-table .table-row-cell:even{
+       -fx-background-color: transparent;
+    }
+
+    .outline-table .table-cell {
+        -fx-padding: 5;
+    }
+
+
+    TextField,
+    .password-field,
+    .text-area{
+        -fx-background-color: -color-base;
+        -fx-text-fill: -color-background-dark1;
+
+
+        -fx-border-width: 1.5px;
+        -fx-border-color: -color-background;
+        -fx-background-radius: 10px;
+        -fx-border-radius: 5px;
+    }
+
+    .check-box{
+        /*-fx-background-color: -color-base;
+        -fx-text-fill: -color-background-dark1;
+        -fx-border-width: 1.5px;
+        -fx-background-radius: 10px;
+        -fx-border-radius: 5px;
+        -fx-border-style: solid;*/
+    }
+
+    /* Style for ChoiceBox */
+    .choice-box {
+        -fx-background-color: -color-base-darker1;
+        -fx-border-width: 1.5px;
+        -fx-border-color: -color-background;
+        -fx-background-radius: 10px;
+        -fx-border-radius: 7px;
+    }
+
+    /* Style for ChoiceBox when hovered */
+    .choice-box:hover {
+        -fx-background-color: -color-accent-primary;
+    }
+
+    /* Style for ChoiceBox when focused */
+    .choice-box:focused {
+        -fx-border-color: -color-accent-primary;
+    /*    -fx-border-radius: 10px;*/
+
+    }
+
+    /* Style for ChoiceBox popup menu */
+    .choice-box .menu-item {
+        -fx-text-fill: #333333;
+    }
+
+    /* Style for ChoiceBox popup menu item when hovered */
+    .choice-box .menu-item:hover {
+        -fx-background-color: #007acc;
+        -fx-text-fill: white;
+    }
+
+    .red {
+        -fx-border-color: -color-red;
+        /*-fx-text-fill: white;*/
+    }
+
+    .red:hover {
+        -fx-background-color: -color-red;
+        -fx-text-fill: white;
+    }
+
+
+
+    .rounded {
+        -fx-background-radius: 50;
+        -fx-border-radius: 50;
+        /* remove invalid ellipse() */
+    }
+
+    .admin-menu-button {
+        -fx-background-color: transparent;
+        -fx-border-width: 0;
+        -fx-background-radius: 30;
+        -fx-padding: 0;
+    }
+
+    .admin-menu-button:hover {
+        -fx-background-color: #f0f0f0;
+    }
+
+    .admin-profile-image {
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 1);
+    }
+
+    .profile-image-circle {
+        -fx-clip: circle(75);
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+    }
+
+    .header-label {
+        -fx-text-fill: #1a1a1a;
+        -fx-padding: 10px;
+    }
+    /* Fix text field text color - placeholder stays gray, typed text is black */
+    .text-input {
+        -fx-text-fill: black; /* Typed text color */
+        -fx-prompt-text-fill: #666666; /* Placeholder text color */
+    }
+
+    TextField,
+    .password-field,
+    .text-area {
+        -fx-background-color: -color-base;
+        -fx-text-fill: black; /* Ensure typed text is black */
+
+        -fx-border-width: 1.5px;
+        -fx-border-color: -color-background;
+        -fx-background-radius: 10px;
+        -fx-border-radius: 5px;
+    }
+
+    /* Error state for validation - FIXED: Use more specific selectors */
+    .text-field.error,
+    .text-area.error {
+        -fx-border-color: #ff4444 !important;
+        -fx-border-width: 2px !important;
+        -fx-background-color: #fff0f0 !important;
+    }
+
+    /* Success state for validation - FIXED: Use more specific selectors */
+    .text-field.success,
+    .text-area.success {
+        -fx-border-color: #00cc00 !important;
+        -fx-border-width: 1.5px !important;
+        -fx-background-color: #f0fff0 !important;
+    }
+
+    /* Remove the default focus color that might interfere */
+    .text-field:error:focused,
+    .text-area:error:focused {
+        -fx-border-color: #ff4444 !important;
+    }
+
+    .text-field:success:focused,
+    .text-area:success:focused {
+        -fx-border-color: #00cc00 !important;
+    }
+
+    /* Button hover effects */
+    #addEmployeeBtn {
+        -fx-background-color: #27ae60;
+        -fx-text-fill: white;
+        -fx-font-weight: bold;
+        -fx-font-size: 16px;
+        -fx-pref-height: 45;
+        -fx-pref-width: 200;
+        -fx-cursor: hand;
+    }
+
+    #addEmployeeBtn:hover {
+        -fx-background-color: #219652;
+        -fx-scale-x: 1.02;
+        -fx-scale-y: 1.02;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 1);
+    }
+
+    #backButton {
+        -fx-background-color: #95a5a6;
+        -fx-text-fill: white;
+        -fx-font-weight: bold;
+        -fx-font-size: 14px;
+        -fx-pref-height: 40;
+        -fx-pref-width: 150;
+        -fx-cursor: hand;
+    }
+
+    #backButton:hover {
+        -fx-background-color: #7f8c8d;
+        -fx-scale-x: 1.02;
+        -fx-scale-y: 1.02;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 1);
+    }
+
+    /* Dual citizenship section styling */
+    #dualCitizenshipSection {
+        -fx-border-color: #e74c3c;
+        -fx-border-width: 2px;
+        -fx-padding: 12px;
+        -fx-background-color: #f9ebea;
+        -fx-spacing: 8px;
+    }
+    #announcementsVBox {
+        -fx-background-color: transparent;
+    }

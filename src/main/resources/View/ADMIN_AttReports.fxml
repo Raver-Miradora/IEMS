@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.dlsc.gemsfx.daterange.DateRangePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1060.0" prefWidth="1640.0" stylesheets="@../Style/admin_pane.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.ADMIN_AttReportsCTRL">
+   <children>
+      <Pane layoutX="33.0" layoutY="34.0" prefHeight="147.0" prefWidth="1575.0" styleClass="tilePane">
+         <children>
+            <Label layoutX="17.0" layoutY="14.0" prefHeight="43.0" prefWidth="370.0" text="Attendance Report" textFill="#f8f4f4">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            
+            <HBox alignment="CENTER_LEFT" layoutX="17.0" layoutY="70.0" prefHeight="60.0" prefWidth="1540.0" spacing="10.0">
+               <children>
+                  <VBox spacing="2.0">
+                     <children>
+                        <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Department" />
+                        <ComboBox fx:id="departmentCombo" prefHeight="34.0" prefWidth="250.0" style="-fx-font-size: 14px;" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="2.0">
+                     <children>
+                        <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Employee" />
+                        <ComboBox fx:id="employeeCombo" prefHeight="34.0" prefWidth="250.0" style="-fx-font-size: 14px;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="59.0" prefWidth="280.0" spacing="2.0">
+                     <children>
+                        <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Date Range" />
+                        <DateRangePicker fx:id="dateRangePicker" prefHeight="35.0" prefWidth="280.0" style="-fx-font-size: 16px;" />
+                     </children>
+                  </VBox>
+                  
+                  <Button fx:id="showReportBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Show">
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#handleResetFilters" prefHeight="35.0" prefWidth="80.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Reset">
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </Button>
+
+                  <Region HBox.hgrow="ALWAYS" />
+
+                  <Separator orientation="VERTICAL" />
+                  
+                  <VBox alignment="CENTER_LEFT" spacing="2.0">
+                     <children>
+                        <Label style="-fx-font-size: 12px; -fx-font-weight: bold;" text="Actions" textFill="#dddddd" />
+                        <HBox spacing="10.0">
+                           <children>
+                              <Button fx:id="allDTRBtn" mnemonicParsing="false" onAction="#generateDTR" prefHeight="35.0" prefWidth="120.0" style="-fx-font-size: 14px; -fx-background-color: #27ae60; -fx-text-fill: white;" text="Generate DTR" />
+                              <Button fx:id="printBtn" disable="true" mnemonicParsing="false" onAction="#handlePrint" prefHeight="35.0" prefWidth="80.0" style="-fx-font-size: 14px;" text="Print" />
+                              <Button fx:id="exportTxtBtn" disable="true" mnemonicParsing="false" onAction="#handleExportTxt" prefHeight="35.0" prefWidth="50.0" style="-fx-font-size: 14px;" text="TXT" />
+                              <Button fx:id="exportXlsxBtn" disable="true" mnemonicParsing="false" onAction="#handleExportXlsx" prefHeight="35.0" prefWidth="60.0" style="-fx-font-size: 14px;" text="Excel" />
+                              <Button fx:id="exportPdfBtn" disable="true" mnemonicParsing="false" onAction="#handleExportPdf" prefHeight="35.0" prefWidth="50.0" style="-fx-font-size: 14px;" text="PDF" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+
+               </children>
+               <padding>
+                  <Insets bottom="5.0" right="10.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </Pane>
+
+      <Pane layoutX="35.0" layoutY="198.0" prefHeight="820.0" prefWidth="1576.0" styleClass="tilePane">
+         <children>
+            
+            <TableView fx:id="reportTable" layoutX="16.0" layoutY="26.0" prefHeight="776.0" prefWidth="1142.0" style="-fx-font-size: 16px;" />
+             
+            <VBox layoutX="1175.0" layoutY="26.0" prefHeight="776.0" prefWidth="380.0" spacing="10.0" style="-fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-width: 0 0 0 1;">
+               <children>
+                  <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Analytics" textFill="#333333">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  
+                  <TabPane prefHeight="350.0" prefWidth="358.0" style="-fx-background-color: transparent;" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                    <tabs>
+                      <Tab text="Overview">
+                        <content>
+                              <VBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <Label text="Attendance Distribution" textFill="#575757">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <PieChart fx:id="distributionChart" labelsVisible="true" legendSide="BOTTOM" />
+                                 </children>
+                              </VBox>
+                        </content>
+                      </Tab>
+                      <Tab text="Habitual Lates">
+                        <content>
+                           <VBox alignment="TOP_CENTER" spacing="10.0">
+                              <children>
+                                 <Label text="Flagged Employees (&gt;10 Lates)" textFill="#c0392b">
+                                    <font>
+                                       <Font name="System Bold" size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets top="10.0" />
+                                    </VBox.margin>
+                                 </Label>
+                                 <Label text="" textFill="#999999">
+                                    <font>
+                                       <Font size="10.0" />
+                                    </font>
+                                 </Label>
+                                 <javafx.scene.control.ListView fx:id="habitualLatesListView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: #eeeeee;" />
+                              </children>
+                           </VBox>
+                        </content>
+                     </Tab>
+                      <Tab text="Top Lates">
+                        <content>
+                              <VBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <Label text="Most Frequent Lates" textFill="#575757">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <BarChart fx:id="topLatesChart" animated="false" legendVisible="false">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis label="Count" side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                 </children>
+                              </VBox>
+                        </content>
+                      </Tab>
+                      <Tab text="Tardiness Trend">
+                        <content>
+                              <VBox alignment="TOP_CENTER" spacing="10.0">
+                                 <children>
+                                    <Label text="Minutes Late Over Time" textFill="#575757">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="trendContextLabel" text="(Daily)" textFill="#999999">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <javafx.scene.chart.LineChart fx:id="tardinessTrendChart" animated="false" legendVisible="false">
+                                      <xAxis>
+                                        <CategoryAxis label="Date" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis label="Minutes Late" side="LEFT" />
+                                      </yAxis>
+                                    </javafx.scene.chart.LineChart>
+                                 </children>
+                              </VBox>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="358.0" spacing="2.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-color: #dddddd; -fx-border-radius: 5; -fx-padding: 10;">
+                     <children>
+                        <Label text="Current Reliability Score" textFill="#888888">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="reliabilityScoreLabel" text="--" textFill="#333333">
+                           <font>
+                              <Font name="System Bold" size="48.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="reliabilityMessageLabel" text="Select an employee to view score" textFill="#999999">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </VBox>
+
+                  <VBox prefHeight="200.0" prefWidth="358.0" spacing="5.0" style="-fx-background-color: #f9f9f9; -fx-background-radius: 5; -fx-padding: 10; -fx-border-color: #eeeeee; -fx-border-radius: 5;">
+                     <children>
+                        <Label style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="Reliability Score Guide (Bradford Factor)" />
+                        <Separator prefWidth="200.0" />
+                        <Label text="Formula: S² x D (Spells squared x Total Days Absent)" textFill="#777777" wrapText="true">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-padding: 2 5 2 5; -fx-background-radius: 3;" text="0 - 50" />
+                              <Label text="Excellent Attendance" textFill="#333333" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-padding: 2 5 2 5; -fx-background-radius: 3;" text="51 - 200" />
+                              <Label text="Monitor / Verbal Warning" textFill="#333333" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 2 5 2 5; -fx-background-radius: 3;" text="201 - 500" />
+                              <Label text="Action Required" textFill="#333333" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-padding: 2 5 2 5; -fx-background-radius: 3;" text="500+" />
+                              <Label text="Severe / Disciplinary" textFill="#333333" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

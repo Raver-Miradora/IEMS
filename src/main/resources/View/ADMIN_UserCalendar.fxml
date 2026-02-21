@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1060.0" prefWidth="1640.0"
+            stylesheets="@../Style/admin_pane.css"
+            xmlns="http://javafx.com/javafx/21.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.raver.iemsmaven.Controller.ADMIN_UserCalendarCTRL">
+   <children>
+      <Pane layoutX="15.0" layoutY="15.0" prefHeight="1030.0" prefWidth="1615.0" style="-fx-font-size: 18px;">
+         <children>
+            <!-- Right pane: Add Event -->
+            <Pane layoutX="1090.0" layoutY="14.0" prefHeight="997.0" prefWidth="498.0" styleClass="tilePane">
+               <children>
+                  <Label layoutX="145.0" layoutY="107.0" prefHeight="53.0" prefWidth="240.0"
+                         style="-fx-font-size: 32px; -fx-font-weight: bold;" text="Add Event" textFill="#f8f4f4">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+
+                  <Label layoutX="25.0" layoutY="190.0" text="Date*">
+                     <font><Font size="18.0" /></font>
+                  </Label>
+                  <DatePicker fx:id="datePicker" layoutX="25.0" layoutY="220.0" prefHeight="45.0" prefWidth="450.0" style="-fx-font-size: 16px;" />
+
+                  <Label layoutX="25.0" layoutY="290.0" text="Type*">
+                     <font><Font size="18.0" /></font>
+                  </Label>
+                  <ChoiceBox fx:id="typeComBox" layoutX="25.0" layoutY="320.0" prefHeight="45.0" prefWidth="450.0" style="-fx-font-size: 16px;" />
+
+                  <Label fx:id="holidayTypeLabel" layoutX="25.0" layoutY="370.0" text="Holiday Type" visible="false" managed="false">
+                     <font><Font size="18.0" /></font>
+                  </Label>
+                  <ChoiceBox fx:id="holidayTypeComBox" layoutX="25.0" layoutY="400.0" prefHeight="45.0" prefWidth="450.0" style="-fx-font-size: 16px;" visible="false" managed="false"/>
+
+                  <Label layoutX="25.0" layoutY="470.0" text="Description*">
+                     <font><Font size="18.0" /></font>
+                  </Label>
+                  <!-- Use TextArea for multi-line description -->
+                  <TextArea fx:id="descField" layoutX="25.0" layoutY="500.0" prefHeight="120.0" prefWidth="450.0" promptText="Add Description" style="-fx-font-size: 16px;">
+                     <font><Font size="16.0" /></font>
+                  </TextArea>
+
+                  <Label layoutX="25.0" layoutY="640.0" text="Schedule Type*">
+                     <font><Font size="18.0" /></font>
+                  </Label>
+                  <ChoiceBox fx:id="scheduleTypeComBox" layoutX="25.0" layoutY="670.0" prefHeight="45.0" prefWidth="450.0" style="-fx-font-size: 16px;" />
+
+                  <Label layoutX="25.0" layoutY="730.0" text="Attachment">
+                     <font><Font size="18.0" /></font>
+                  </Label>
+                  <TextField fx:id="attachmentField" layoutX="25.0" layoutY="760.0" prefHeight="42.0" prefWidth="450.0" promptText="Add Link" style="-fx-font-size: 16px;">
+                     <font><Font size="16.0" /></font>
+                  </TextField>
+
+                  <HBox alignment="CENTER" layoutX="25.0" layoutY="820.0" prefHeight="100.0" prefWidth="450.0" spacing="15">
+                     <children>
+                        <Button fx:id="insertBtn" mnemonicParsing="false" onAction="#addSpecialCalendar" prefHeight="57.0" prefWidth="140.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="SAVE">
+                           <font><Font size="16.0" /></font>
+                        </Button>
+                        <Button fx:id="updateBtn" mnemonicParsing="false" onAction="#updateSpecialCalendar" prefHeight="57.0" prefWidth="140.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="UPDATE">
+                           <font><Font size="16.0" /></font>
+                        </Button>
+                        <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#clearManage" prefHeight="57.0" prefWidth="140.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="CLEAR">
+                           <font><Font size="13.0" /></font>
+                        </Button>
+                     </children>
+                  </HBox>
+
+                  <Button fx:id="deactivateBtn" layoutX="25.0" layoutY="940.0" mnemonicParsing="false" onAction="#deactivateSpecialCalendar" prefHeight="57.0" prefWidth="450.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="DEACTIVATE">
+                     <font><Font size="16.0" /></font>
+                  </Button>
+               </children>
+            </Pane>
+
+            <!-- Left pane: Table -->
+            <Pane layoutX="19.0" layoutY="14.0" prefHeight="997.0" prefWidth="1053.0" styleClass="tilePane">
+               <children>
+                  <TableView fx:id="specialCalTable" layoutX="23.0" layoutY="83.0" onMouseClicked="#handleSelectBtn" prefHeight="874.0" prefWidth="1020.0">
+                     <columns>
+                        <TableColumn fx:id="calTypeCol" prefWidth="150.0" style="-fx-alignment: center;" text="Calendar Type" />
+                        <TableColumn fx:id="descCol" minWidth="200.0" prefWidth="400.0" style="-fx-alignment: center;" text="Description" />
+                        <TableColumn fx:id="attachmentCol" prefWidth="225.0" style="-fx-alignment: center;" text="Attachment" />
+                        <TableColumn fx:id="startDCol" minWidth="120.0" prefWidth="120.0" text="Start Date" />
+                        <TableColumn fx:id="endDCol" minWidth="120.0" prefWidth="120.0" text="End Date" />
+                     </columns>
+                  </TableView>
+
+                  <Label layoutX="29.0" layoutY="18.0" prefHeight="53.0" prefWidth="407.0" style="-fx-font-size: 42px; -fx-font-weight: bold;" text="Calendar Events">
+                     <font><Font name="System Bold" size="42.0" /></font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

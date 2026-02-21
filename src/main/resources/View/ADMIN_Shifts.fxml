@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.dlsc.gemsfx.TimePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1060.0" prefWidth="1640.0" stylesheets="@../Style/admin_pane.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.ADMIN_ShiftsCTRL">
+   <children>
+      <Pane layoutX="966.0" layoutY="27.0" prefHeight="996.0" prefWidth="649.0" styleClass="tilePane">
+         <children>
+            <VBox layoutX="37.0" layoutY="248.0" prefHeight="451.0" prefWidth="564.0">
+               <children>
+                  <Label text="Shift">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="shiftNameField" prefHeight="45.0" style="-fx-font-size: 18px;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="17.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <HBox prefHeight="128.0" prefWidth="564.0">
+                     <children>
+                        <VBox prefHeight="83.0" prefWidth="299.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="299.0" text="Start Time">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TimePicker fx:id="startTimePicker" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="272.0" style="-fx-font-size: 18px;" />
+                           </children>
+                           <HBox.margin>
+                              <Insets right="12.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="83.0" prefWidth="324.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="324.0" text="End Time">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TimePicker fx:id="endTimePicker" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="322.0" style="-fx-font-size: 18px;" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="12.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox prefHeight="231.0" prefWidth="564.0">
+                     <children>
+                        <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addShift" prefHeight="101.0" prefWidth="564.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Add Shift">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Label prefHeight="15.0" prefWidth="75.0" />
+                        <Button fx:id="updateBtn" mnemonicParsing="false" onAction="#updateShift" prefHeight="100.0" prefWidth="562.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Update">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Label layoutX="10.0" layoutY="82.0" prefHeight="15.0" prefWidth="75.0" />
+                        <Button fx:id="deactivateBtn" mnemonicParsing="false" onAction="#invertShiftStatus" prefHeight="100.0" prefWidth="562.0" style="-fx-font-size: 20px; -fx-background-color: #ff4444; -fx-text-fill: white;" styleClass="red" text="Deactivate">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="23.0" layoutY="30.0" prefHeight="996.0" prefWidth="928.0" styleClass="tilePane">
+         <children>
+            <TableView fx:id="shiftTable" layoutX="26.0" layoutY="128.0" onMouseClicked="#shiftSelected" prefHeight="792.0" prefWidth="875.0" style="-fx-font-size: 18px;">
+              <columns>
+                <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" visible="false" />
+                <TableColumn fx:id="col_shiftName" prefWidth="436.0" text="Shift" />
+                  <TableColumn fx:id="col_startTime" prefWidth="220.0" style="-fx-alignment: center;" text="Start Time" />
+                  <TableColumn fx:id="col_endTime" minWidth="0.0" prefWidth="220.0" style="-fx-alignment: center;" text="End Time" />
+              </columns>
+            </TableView>
+            <HBox layoutX="542.0" layoutY="72.0" prefHeight="45.0" prefWidth="359.0">
+               <children>
+                  <Label prefHeight="42.0" prefWidth="90.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="     Status">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets right="8.0" />
+                     </padding>
+                  </Label>
+                  <ChoiceBox fx:id="statusFilterChoiceBox" prefHeight="45.0" prefWidth="270.0" style="-fx-font-size: 16px;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+            <Label layoutX="28.0" layoutY="12.0" text="Shift">
+               <font>
+                  <Font name="System Bold" size="38.0" />
+               </font>
+            </Label>
+            <TextField fx:id="searchField" layoutX="26.0" layoutY="70.0" prefHeight="48.0" prefWidth="414.0" promptText="Search" style="-fx-font-size: 16px;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

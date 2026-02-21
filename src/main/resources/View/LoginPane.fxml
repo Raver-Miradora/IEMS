@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAnchorPane" focusTraversable="true" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: -color-base;" stylesheets="@../Style/admin_pane.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.LoginPaneCTRL">
+   <children>
+      <Pane layoutX="900.0" layoutY="17.0" prefHeight="1020.0" prefWidth="999.0" style="-fx-background-color: -color-accent-primary;" styleClass="tilePane">
+         <children>
+            <VBox layoutX="20.0" layoutY="33.0" prefHeight="108.0" prefWidth="916.0">
+               <children>
+                  <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="95.0" prefWidth="916.0" text="Tuesday, July 8" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="2.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="109.0" prefWidth="916.0" style="-fx-alignment: center-left;">
+                     <children>
+                        <Label fx:id="notationLabel1" contentDisplay="CENTER" layoutX="409.0" layoutY="16.0" prefHeight="99.0" prefWidth="48.0" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Bold" size="48.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="timeLabel" contentDisplay="CENTER" prefHeight="205.0" prefWidth="744.0" text="10:45:00" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Bold" size="180.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="notationLabel" contentDisplay="CENTER" prefHeight="123.0" prefWidth="142.0" text="am" textAlignment="CENTER" translateY="5.0">
+                           <font>
+                              <Font name="Arial Bold" size="72.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label fx:id="scannerStatusLabel" alignment="CENTER" layoutX="19.0" layoutY="310.0" prefHeight="23.0" prefWidth="960.0" text="Reader Connected" textFill="#2c402d">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="scannerStatusSubtextLabel" alignment="CENTER" layoutX="20.0" layoutY="335.0" prefHeight="27.0" prefWidth="958.0" text="READY FOR CAPTURE" textFill="#2c4036">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <TableView fx:id="recentAttendanceTable" layoutX="13.0" layoutY="451.0" prefHeight="555.0" prefWidth="972.0" style="-fx-font-size: 18px;" styleClass="outline-table">
+               <columns>
+                  <TableColumn fx:id="col_name" minWidth="250.0" prefWidth="250.0" text="Name" />
+                  <TableColumn fx:id="col_am_in" minWidth="120.0" prefWidth="120.0" text="AM IN" />
+                  <TableColumn fx:id="col_am_out" minWidth="120.0" prefWidth="120.0" text="AM OUT" />
+                  <TableColumn fx:id="col_pm_in" minWidth="120.0" prefWidth="120.0" text="PM IN" />
+                  <TableColumn fx:id="col_pm_out" minWidth="120.0" prefWidth="120.0" text="PM OUT" />
+                  <TableColumn fx:id="col_ot_in" minWidth="120.0" prefWidth="120.0" text="OT IN" />
+                  <TableColumn fx:id="col_ot_out" minWidth="120.0" prefWidth="120.0" text="OT OUT" />
+               </columns>
+            </TableView>
+            <Label layoutX="17.0" layoutY="378.0" prefHeight="27.0" prefWidth="229.0" text="Recent Attendance" textFill="#2c4036">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="titleLabel" alignment="CENTER" layoutX="790.0" layoutY="378.0" opacity="0.0" text="IEMSwBFAT" textFill="#00bf79">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="adminLoginBtn" layoutX="885.0" layoutY="10.0" mnemonicParsing="false" onAction="#openAdminLogin" prefHeight="44.0" prefWidth="106.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <text>Admin</text> <font>
+               <Font name="Arial Bold" size="16.0" />
+            </font>
+         </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="911.0" layoutY="431.0" prefHeight="43.0" prefWidth="975.0" style="-fx-background-color: #E6C79C;" styleClass="tilePane">
+         <children>
+            <Label layoutX="97.0" layoutY="10.0" text="NAME" textFill="#2c4036">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="287.0" layoutY="10.0" text="AM IN" textFill="#2c4036">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="531.0" layoutY="10.0" text="PM IN" textFill="#2c4036">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="769.0" layoutY="10.0" text="OT IN" textFill="#2c4036">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="397.0" layoutY="10.0" text="AM OUT" textFill="#2c4036">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="645.0" layoutY="10.0" text="PM OUT" textFill="#2c4036">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="879.0" layoutY="10.0" text="OT OUT" textFill="#2c4036">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="18.0" layoutY="17.0" prefHeight="324.0" prefWidth="865.0" style="-fx-background-color: -color-accent-primary;" styleClass="tilePane">
+         <children>
+            <ImageView fx:id="UIV" fitHeight="188.0" fitWidth="188.0" layoutX="23.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/default_user_img1.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="ATL" layoutX="232.0" layoutY="92.0" prefHeight="39.0" prefWidth="416.0" text="_______" textFill="#07f79f">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label fx:id="SL" layoutX="234.0" layoutY="203.0" prefHeight="39.0" prefWidth="429.0" text="Surname," textFill="#07f79f">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="NML" layoutX="234.0" layoutY="230.0" prefHeight="39.0" prefWidth="551.0" text="First Name M." textFill="#07f79f">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="TL" layoutX="232.0" layoutY="135.0" prefHeight="39.0" prefWidth="416.0" text="--:-- --" textFill="#07f79f">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="EID" layoutX="234.0" layoutY="176.0" prefHeight="39.0" prefWidth="429.0" text="LGU-L000000" textFill="#07f79f">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="PID" layoutX="234.0" layoutY="259.0" prefHeight="39.0" prefWidth="435.0" text="Position" textFill="#07f79f">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="BSIMG" fitHeight="209.0" fitWidth="219.0" layoutX="622.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      
+      <VBox layoutX="19.0" layoutY="359.0" prefHeight="134.0" prefWidth="863.0" spacing="6.0">
+         <children>
+            <Pane prefHeight="143.0" prefWidth="859.0" style="-fx-background-color: -color-accent-primary;" styleClass="tilePane">
+               <children>
+                 <Pane fx:id="msgPane" prefHeight="40.0" prefWidth="863.0" style="-fx-background-color: #E6C79C;" styleClass="tilePane">
+                <children>
+                   <Label alignment="CENTER" layoutX="3.0" layoutY="10.0" prefHeight="23.0" prefWidth="859.0" text="SYSTEM MESSAGE" textFill="#2c4036">
+                   <font>
+                              <Font name="Arial Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label fx:id="SystemMessage1" alignment="CENTER" layoutX="13.0" layoutY="50.0" prefHeight="45.0" prefWidth="832.0" style="-fx-font-size: 20;" textFill="#07f79f">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SystemMessage2" alignment="CENTER" layoutX="13.0" layoutY="95.0" prefHeight="30.0" prefWidth="833.0" style="-fx-font-size: 18px;" textFill="#07f79f">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <Label fx:id="dateLabel1" contentDisplay="CENTER" layoutX="119.0" layoutY="44.0" prefHeight="27.0" prefWidth="194.0" text="LGU LAGONOY" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="76.0" fitWidth="79.0" layoutX="41.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/lgulogo1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="dateLabel11" contentDisplay="CENTER" layoutX="119.0" layoutY="69.0" prefHeight="27.0" prefWidth="194.0" text="Camarines Sur" textAlignment="CENTER">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="fpImageview" fitHeight="364.0" fitWidth="346.0" layoutX="300.0" layoutY="510.0">
+         <image>
+            <Image url="@../Images/fp_placeholder.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="23.0" layoutY="915.0" prefHeight="122.0" prefWidth="859.0" style="-fx-background-color: -color-accent-primary;" styleClass="tilePane">
+         <children>
+            <Pane layoutY="-34.0" prefHeight="43.0" prefWidth="859.0" style="-fx-background-color: #E6C79C;" styleClass="tilePane">
+               <children>
+                  <Label layoutX="345.0" layoutY="10.0" text="ANNOUNCEMENTS" textFill="#2c4036">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ScrollPane hbarPolicy="NEVER" layoutY="15.0" prefHeight="101.0" prefWidth="859.0" style="-fx-background: transparent; -fx-background-color: transparent;">
+               <content>
+                  <VBox fx:id="announcementsVBox" prefWidth="835.0" spacing="10.0" style="-fx-background-color: transparent;">
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,160 @@
+/* Add these to your admin_pane.css file */
+.root {
+  -color-background-dark1: #B3C0C6;
+  -color-background-white: #FFFFFF;
+  -color-background: #D0D8DC;
+  -color-accent-primary: linear-gradient(to bottom, #a3f8c2, #81ecae, #5ddc99);
+  -color-accent-primary-to-bottom-right: linear-gradient(to bottom right, #a3f8c2, #81ecae, #5ddc99);
+  -color-accent-secondary: #c9ffec;
+  -color-base: white;
+  -color-base-gradient: linear-gradient(to bottom right, -color-base, #f0f0f0);
+  -color-base-darker1: #e6e6e6;
+  -color-text: #3b3b3b;
+  -color-red: #f44336;
+  -color-red-gradient: linear-gradient(to bottom, #ff6f66, #f44336, #d32f2f);
+}
+
+/* General button styling */
+.button {
+    -fx-background-color: -color-base;
+    -fx-border: none;
+    -fx-color: -color-;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 7;
+    -fx-text-fill: -color-text;
+
+    -fx-alignment: CENTER;
+
+    -fx-border-width: 2px;
+        -fx-border-color: -color-accent-primary;
+        -fx-background-radius: 10px;
+        -fx-border-radius: 7px;
+}
+
+.button:hover {
+    -fx-background-color: -color-accent-primary;
+}
+
+#loginBtn {
+    -fx-background-color: -color-accent-primary;
+}
+#loginBtn:hover {
+    -fx-background-color: #3ebf7a;
+}
+#loginBtn:pressed{
+    -fx-background-color: #246b46;
+}
+
+/* Specific styling for login button */
+
+.bg-zinc-50 {
+    -fx-background-color: #fafafa;
+}
+
+.border {
+    -fx-border-color: #e4e4e7;
+    -fx-border-width: 1px;
+}
+
+.border-zinc-200 {
+    -fx-border-color: #e4e4e7;
+}
+
+.p-6 {
+    -fx-padding: 24px;
+}
+
+.spacing-6 > * {
+    -fx-margin: 0 0 24px 0;
+}
+
+.spacing-6 > *:last-child {
+    -fx-margin: 0;
+}
+
+.spacing-1 > * {
+    -fx-margin: 0 0 4px 0;
+}
+
+.spacing-1 > *:last-child {
+    -fx-margin: 0;
+}
+
+.text-3xl {
+    -fx-font-size: 30px;
+}
+
+.font-bold {
+    -fx-font-weight: bold;
+}
+
+.text-base {
+    -fx-font-size: 16px;
+}
+
+.fill-zinc-400 {
+    -fx-fill: #a1a1aa;
+}
+
+.fill-zinc-950 {
+    -fx-text-fill: #09090b;
+}
+
+.bg-transparent {
+    -fx-background-color: transparent;
+}
+
+.text-xs {
+    -fx-font-size: 12px;
+}
+
+.fill-red-500 {
+    -fx-text-fill: #ef4444;
+    -fx-fill: #ef4444;
+}
+
+.bg-orange-500 {
+    -fx-background-color: #f97316;
+}
+
+.bg-rounded-none {
+    -fx-background-radius: 0;
+}
+
+.text-fill-zinc-50 {
+    -fx-text-fill: #fafafa;
+}
+
+.cursor-pointer {
+    -fx-cursor: hand;
+}
+
+/* Make actual typed text black and normal weight for text fields and password fields */
+.text-field, .password-field {
+    -fx-text-fill: #0f1722;          /* near-black for typed text */
+    -fx-font-weight: 400;            /* normal weight */
+    -fx-opacity: 1;                  
+}
+
+/* Prompt (placeholder) color — darker than default so it isn't too faint */
+.text-field, .password-field {
+    -fx-prompt-text-fill: rgba(15,23,34,0.45); /* semi-opaque dark */
+}
+
+/* Slightly different prompt when field is focused (makes typing clearer) */
+.text-field:focused, .password-field:focused {
+    -fx-prompt-text-fill: rgba(15,23,34,0.28);
+}
+
+/* If you want to style specific fields by fx:id, these override the generic rules */
+#emailField, #passwordField, #visiblePasswordField {
+    -fx-text-fill: #0f1722;
+    -fx-font-weight: 400;
+    -fx-prompt-text-fill: rgba(15,23,34,0.45);
+}
+
+/* Make sure the caret is visible */
+.text-field .caret, .password-field .caret {
+    -fx-stroke: #000000;
+}

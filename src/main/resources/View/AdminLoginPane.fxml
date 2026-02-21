@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="539.0" prefWidth="778.0" style="-fx-background-color: #81e6b9;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.AdminLoginPaneCTRL">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <GridPane alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" />
+                  <ColumnConstraints hgrow="SOMETIMES" />
+                  <ColumnConstraints hgrow="SOMETIMES" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="400.0" /> 
+                  <ColumnConstraints hgrow="SOMETIMES" />
+                  <ColumnConstraints hgrow="SOMETIMES" />
+                  <ColumnConstraints hgrow="SOMETIMES" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox style="-fx-background-color: white; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.5, 0.0, 0.0);" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                     <children>
+                        <ImageView fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/program_icon_dark.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        
+                        <VBox spacing="5.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Login">
+                                 <style>
+                                    -fx-font-size: 24px;
+                                    -fx-font-weight: bold;
+                                    -fx-fill: #1a1a1a;
+                                 </style>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This section is exclusively for administrator access. Please enter your credentials to proceed." wrappingWidth="340.0">
+                                 <style>
+                                    -fx-fill: #888888;
+                                    -fx-font-size: 13px;
+                                 </style>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </VBox>
+                        
+                        <GridPane hgap="4.0" vgap="10.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints />
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints />
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints />
+                          </rowConstraints>
+                           <children>
+                              <VBox spacing="2.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label text="Email">
+                                       <style>
+                                          -fx-font-weight: bold;
+                                          -fx-text-fill: #333333;
+                                       </style>
+                                    </Label>
+                                    <TextField fx:id="emailField" promptText="">
+                                       <style>
+                                          -fx-background-color: white; 
+                                          -fx-border-color: #e0e0e0; 
+                                          -fx-border-radius: 4;
+                                          -fx-padding: 8;
+                                       </style>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="2.0" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label text="Password">
+                                       <style>
+                                          -fx-font-weight: bold;
+                                          -fx-text-fill: #333333;
+                                       </style>
+                                    </Label>
+                                    <StackPane alignment="CENTER_RIGHT">
+                                       <children>
+                                          <TextField fx:id="visiblePasswordField" promptText="" visible="false">
+                                              <style>
+                                                  -fx-background-color: white; 
+                                                  -fx-border-color: #e0e0e0; 
+                                                  -fx-border-radius: 4;
+                                                  -fx-padding: 8;
+                                              </style>
+                                          </TextField>
+                                          <PasswordField fx:id="passwordField">
+                                              <style>
+                                                  -fx-background-color: white; 
+                                                  -fx-border-color: #e0e0e0; 
+                                                  -fx-border-radius: 4;
+                                                  -fx-padding: 8;
+                                              </style>
+                                          </PasswordField>
+                                          <ImageView fx:id="togglePassVisibilityImageView" fitHeight="20.0" fitWidth="20.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/hide_password.png" />
+                                             </image>
+                                             <StackPane.margin>
+                                                <Insets right="10.0" />
+                                             </StackPane.margin>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </VBox>
+                              
+                              <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#authenticate" text="Login" GridPane.rowIndex="4">
+                                 <style>
+                                    -fx-background-color: #66DFA2; 
+                                    -fx-text-fill: white; 
+                                    -fx-font-weight: bold; 
+                                    -fx-background-radius: 5;
+                                    -fx-cursor: hand;
+                                 </style>
+                                 <prefHeight>35.0</prefHeight>
+                                 <maxWidth>1.7976931348623157E308</maxWidth>
+                              </Button>
+
+                              <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" text="Back" GridPane.rowIndex="5">
+                                 <style>
+                                    -fx-background-color: white; 
+                                    -fx-text-fill: #333333; 
+                                    -fx-border-color: #66DFA2; 
+                                    -fx-border-radius: 5; 
+                                    -fx-background-radius: 5;
+                                    -fx-font-weight: bold;
+                                    -fx-cursor: hand;
+                                 </style>
+                                 <prefHeight>35.0</prefHeight>
+                                 <maxWidth>1.7976931348623157E308</maxWidth>
+                              </Button>
+
+                              <Label fx:id="loginPrompt" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Invalid Credentials" textFill="#ff572d" visible="false" GridPane.rowIndex="6">
+                                 <style>
+                                    -fx-font-size: 11px;
+                                 </style>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

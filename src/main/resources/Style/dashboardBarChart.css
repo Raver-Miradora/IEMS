@@ -1,0 +1,131 @@
+/* =========================================
+   1. GLOBAL RESET (The Nuclear Option)
+   ========================================= */
+* {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+*:focused {
+    -fx-scale-x: 1 !important;
+    -fx-scale-y: 1 !important;
+    -fx-text-fill: inherit;
+    -fx-background-insets: 0 !important;
+    -fx-background-radius: 0 !important;
+    -fx-border-width: 0 !important;
+    -fx-effect: none !important;
+}
+
+/* =========================================
+   2. SCROLL PANE (The Main Culprit)
+   ========================================= */
+/* Crucial: We must force padding to 0 so it doesn't 
+   add a 1px buffer when clicked */
+.scroll-pane, 
+.scroll-pane:focused, 
+.scroll-pane > .viewport, 
+.scroll-pane:focused > .viewport {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0 !important;
+    -fx-padding: 0 !important; /* <--- THIS IS THE FIX */
+    -fx-background: transparent;
+}
+
+/* =========================================
+   3. CHART FIXES (Prevent Shifting)
+   ========================================= */
+.chart, .chart:focused {
+    -fx-padding: 0 !important;
+    -fx-background-insets: 0 !important;
+}
+
+.chart-content {
+    -fx-padding: 10px; /* Give internal breathing room, but static */
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+/* Pie Chart Specifics */
+.chart-pie-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-fill: #2c3e50;
+}
+
+.chart-pie-label:hover {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-fill: #27ae60;
+}
+
+/* Axis Styling (Dark Text) */
+.axis {
+    -fx-tick-label-fill: #2c3e50 !important; 
+    -fx-tick-label-font-size: 12px;
+}
+
+.axis-label {
+    -fx-text-fill: #2c3e50 !important;
+}
+
+.chart-legend-item {
+    -fx-text-fill: #2c3e50 !important;
+}
+
+/* =========================================
+   4. BAR COLORS
+   ========================================= */
+.default-color0.chart-bar { 
+    -fx-bar-fill: #4169E1; /* Royal Blue */
+}
+.default-color1.chart-bar { 
+    -fx-bar-fill: #FF69B4; /* Hot Pink */
+}
+
+.chart-bar.series0 {
+    -fx-bar-fill: #FF97C4;
+}
+.chart-bar.series1 {
+    -fx-bar-fill: #8367C7;  
+}
+
+.chart-bar {
+    -fx-border-radius: 10;
+    -fx-bar-gap: 1;
+    -fx-category-gap: 10;
+}
+
+/* =========================================
+   5. BUTTON STYLING
+   ========================================= */
+.button {
+    -fx-background-color: #4A90E2;
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+    -fx-padding: 8 14;
+    -fx-font-size: 14px;
+}
+
+.button:hover {
+    -fx-background-color: #3B78C7;
+}
+
+.button:pressed {
+    -fx-background-color: #365F9F;
+    -fx-scale-x: 1; /* Key fix for buttons */
+    -fx-scale-y: 1;
+}
+
+/* =========================================
+   6. TABLE VIEW FIXES
+   ========================================= */
+.table-view {
+    -fx-font-size: 14px;
+    -fx-cell-size: 32px;
+}
+
+.table-row-cell:focused {
+    -fx-background-insets: 0;
+}

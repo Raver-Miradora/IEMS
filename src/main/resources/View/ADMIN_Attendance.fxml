@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.dlsc.gemsfx.daterange.DateRangePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ChoiceBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="1060.0" prefWidth="1640.0" stylesheets="@../Style/admin_pane.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.ADMIN_AttendanceCTRL">
+   <children>
+      <Pane layoutX="16.0" layoutY="20.0" prefHeight="1021.0" prefWidth="1609.0" style="-fx-background-color: linear-gradient(to bottom right, white, #f0f0f0); -fx-background-radius: 10;">
+        <children>
+            <Label layoutX="30.0" layoutY="26.0" style="-fx-text-fill: #3b3b3b; -fx-font-family: 'Arial';" text="Attendance Logs">
+               <font>
+                  <Font name="Arial Bold" size="36.0" />
+               </font>
+            </Label>
+
+            <!-- *** NEW UNIFIED FILTER AND ACTION BAR *** -->
+            <HBox alignment="BOTTOM_LEFT" layoutX="30.0" layoutY="95.0" prefHeight="60.0" prefWidth="1554.0" spacing="15.0">
+               <children>
+                  <!-- Date Range Picker Section -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #3b3b3b;" text="Select Date Range:" />
+                        <DateRangePicker fx:id="dateRangePicker" prefHeight="35.0" prefWidth="300.0" style="-fx-font-size: 16px;" />
+                     </children>
+                  </VBox>
+
+                  <!-- NEW Department ChoiceBox Section -->
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #3b3b3b;" text="Department:" />
+                        <ChoiceBox fx:id="departmentChoiceBox" prefHeight="35.0" prefWidth="300.0" style="-fx-font-size: 16px;" />
+                     </children>
+                  </VBox>
+                  
+                  <!-- Spacer -->
+                  <Pane HBox.hgrow="ALWAYS" />
+
+                  <!-- Action Buttons -->
+                  <Button fx:id="printBtn" disable="true" mnemonicParsing="false" onAction="#handlePrint" prefHeight="35.0" prefWidth="140.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Print Report" />
+                  <Button fx:id="exportTextBtn" disable="true" mnemonicParsing="false" onAction="#handleExportText" prefHeight="35.0" prefWidth="140.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Export TXT" />
+                  <Button fx:id="exportExcelBtn" disable="true" mnemonicParsing="false" onAction="#handleExportExcel" prefHeight="35.0" prefWidth="140.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Export XLSX" />
+                  <Button fx:id="exportPdfBtn" disable="true" mnemonicParsing="false" onAction="#handleExportPdf" prefHeight="35.0" prefWidth="140.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Export PDF" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         <!-- Adjusted TableView Y-position and font size -->
+            <TableView fx:id="adminTableView" layoutX="30.0" layoutY="175.0" prefHeight="820.0" prefWidth="1554.0" style="-fx-font-size: 17px; -fx-text-fill: #3b3b3b;"> 
+                <columns>
+                  <TableColumn fx:id="empIdCol" minWidth="180.0" prefWidth="100.0" style="-fx-text-fill: #3b3b3b; -fx-alignment: center;" text="Employee ID" />
+                  <TableColumn fx:id="nameCol" minWidth="230.0" prefWidth="230.0" style=" -fx-text-fill: #3b3b3b;" text="Name" />
+                  <TableColumn fx:id="dateCol" minWidth="120.0" prefWidth="120.0" style="-fx-text-fill: #3b3b3b; -fx-alignment: center;" text="Date" />
+                  <TableColumn fx:id="amInCol" minWidth="90.0" prefWidth="95.0" style="-fx-text-fill: #3b3b3b; -fx-alignment: center;" text="AM IN" />
+                  <TableColumn fx:id="amOutCol" minWidth="90.0" prefWidth="95.0" style="-fx-text-fill: #3b3b3b; -fx-alignment: center;" text="AM OUT" />
+                  <TableColumn fx:id="pmInCol" minWidth="90.0" prefWidth="95.0" style="-fx-text-fill: #3b3b3b; -fx-alignment: center;" text="PM IN" />
+                  <TableColumn fx:id="pmOutCol" minWidth="90.0" prefWidth="95.0" style="-fx-text-fill: #3b3b3b; -fx-alignment: center;" text="PM OUT" />
+                  <TableColumn fx:id="otInCol" minWidth="90.0" prefWidth="95.0" style="-fx-text-fill: #3b3b3b; -fx-alignment: center;" text="OT IN" />
+                  <TableColumn fx:id="otOutCol" minWidth="90.0" prefWidth="95.0" style="-fx-text-fill: #3b3b3b; -fx-alignment: center;" text="OT OUT" />
+                  <TableColumn fx:id="status" minWidth="110.0" prefWidth="110.0" style="-fx-text-fill: #3b3b3b; -fx-alignment: center;" text="Status" />
+                  <TableColumn fx:id="posCol" minWidth="280.0" prefWidth="280.0" style=" -fx-text-fill: #3b3b3b;" text="Position" />
+               </columns>
+               <style>-fx-border-width: 2px; -fx-border-color: #D0D8DC; -fx-background-radius: 10px; -fx-border-radius: 8px;-fx-padding: 0px;</style>
+            </TableView>
+
+         </children>
+         <style>-fx-border-width: 2px; -fx-border-color: #D0D8DC; -fx-border-radius: 8px;</style>
+        </Pane>
+   </children>
+</AnchorPane>

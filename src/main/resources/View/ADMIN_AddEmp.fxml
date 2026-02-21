@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.CheckBox?>
+
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" prefHeight="1060.0" prefWidth="1640.0" style="-fx-background-color: -color-base;" stylesheets="@../Style/admin_pane.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.ADMIN_AddEmpCTRL">
+   <children>
+      <ScrollPane fitToWidth="true" layoutX="63.0" layoutY="54.0" prefHeight="940.0" prefWidth="1526.0">
+         <content>
+            <VBox spacing="25.0" style="-fx-background-color: white; -fx-padding: 25;">
+               <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #2c3e50; -fx-padding: 20; -fx-background-radius: 10;">
+                <ImageView fitHeight="40.0" fitWidth="40.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../Images/default_user_img.jpg" />
+                    </image>
+                </ImageView>
+                <VBox spacing="5.0" HBox.hgrow="ALWAYS"> <Label fx:id="formTitleLabel" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;" text="Add Employee" />
+                    <Label style="-fx-font-size: 14px; -fx-text-fill: #ecf0f1;" text="Welcome, Admin - Complete the employee information below" />
+                </VBox>
+
+                <Button fx:id="importPdsButton" onAction="#handleImportPDS" text="Import PDS" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+
+            </HBox>
+
+               <HBox alignment="TOP_LEFT" spacing="30.0">
+                  <VBox prefWidth="900.0" spacing="25.0">
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="I. PERSONAL INFORMATION" />
+                         
+                         <GridPane hgap="15.0" vgap="12.0">
+                           <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Surname *" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="First Name *" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                           
+                           <TextField fx:id="LnameField" promptText="Surname" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                           <TextField fx:id="FnameField" promptText="First Name" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Middle Name" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Name Extension" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           
+                           <TextField fx:id="MnameField" promptText="Middle Name" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                           <ChoiceBox fx:id="userSuffixChoiceBox" prefHeight="35.0" prefWidth="200.0" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Date of Birth *" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           
+                           <DatePicker fx:id="dateOfBirthPicker" prefHeight="35.0" prefWidth="200.0" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Sex *" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Civil Status" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                           <ChoiceBox fx:id="civilStatusChoiceBox" prefHeight="35.0" prefWidth="200.0" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Height" GridPane.rowIndex="6" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Weight" GridPane.rowIndex="8" />
+                           
+                           <TextField fx:id="heightField" promptText="Height in meters" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.rowIndex="7" />
+                           <TextField fx:id="weightField" promptText="Weight in kg" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.rowIndex="9" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Blood Type" GridPane.rowIndex="10" />
+                           <ChoiceBox fx:id="bloodTypeChoiceBox" prefHeight="35.0" prefWidth="200.0" style="-fx-font-size: 14px;" GridPane.rowIndex="11" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Citizenship" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                           <ChoiceBox fx:id="citizenshipChoiceBox" prefHeight="35.0" prefWidth="200.0" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                           
+                         <VBox fx:id="dualCitizenshipSection" managed="false" spacing="10.0" style="-fx-padding: 10 0 0 0;" visible="false" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="12">
+                               <GridPane hgap="15.0" vgap="10.0">
+                                 <columnConstraints>
+                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                                 </columnConstraints>
+
+                                 <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Dual Citizenship Type" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                 <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Country" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                 <ChoiceBox fx:id="dualCitizenshipTypeChoiceBox" prefHeight="35.0" prefWidth="200.0" style="-fx-font-size: 14px;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                 <TextField fx:id="dualCitizenshipCountryField" promptText="Country" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                               </GridPane>
+                           </VBox>
+
+                           <TextField fx:id="placeOfBirthField" promptText="Place of Birth" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.rowIndex="5" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Place of Birth" GridPane.rowIndex="4" />
+                           
+                           <ChoiceBox fx:id="sexChoiceBox" prefHeight="35.0" prefWidth="200.0" style="-fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                         </GridPane>
+                     </VBox>
+
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Contact Information" />
+                         
+                         <GridPane hgap="15.0" vgap="12.0">
+                           <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Mobile No. *" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Telephone No." GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                           
+                           <TextField fx:id="contactNumField" promptText="Mobile No." style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                           <TextField fx:id="telephoneNoField" promptText="Telephone No." style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Email Address *" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                           <TextField fx:id="emailField" promptText="Email Address" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                         </GridPane>
+                     </VBox>
+
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                           <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="II. FAMILY BACKGROUND" />
+
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Spouse Information" />
+                           <GridPane hgap="15.0" vgap="10.0">
+                             <columnConstraints>
+                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                             </columnConstraints>
+
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Surname" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="First Name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Middle Name" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Name Extension" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                             <TextField fx:id="spouseSurnameField" promptText="Surname" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                             <TextField fx:id="spouseFirstNameField" promptText="First Name" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                             <TextField fx:id="spouseMiddleNameField" promptText="Middle Name" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <ChoiceBox fx:id="spouseNameExtensionField" prefHeight="35.0" prefWidth="100.0" style="-fx-font-size: 12px;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Occupation" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Employer/Business Name" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+
+                             <TextField fx:id="spouseOccupationField" promptText="Occupation" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                             <TextField fx:id="spouseEmployerField" promptText="Employer/Business Name" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Business Address" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="4" />
+                             <TextArea fx:id="spouseBusinessAddressField" prefHeight="60.0" promptText="Business Address" style="-fx-font-size: 12px;" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="5" />
+
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Telephone No." GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                             <TextField fx:id="spouseTelephoneField" promptText="Telephone No." style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+                           </GridPane>
+
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-padding-top: 15;" text="Parents Information" />
+
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 12px; -fx-padding-top: 10;" text="Father's Name" />
+                           <GridPane hgap="15.0" vgap="10.0">
+                             <columnConstraints>
+                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                             </columnConstraints>
+
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Surname" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="First Name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Middle Name" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Name Extension" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                             <TextField fx:id="fatherSurnameField" promptText="Surname" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                             <TextField fx:id="fatherFirstNameField" promptText="First Name" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                             <TextField fx:id="fatherMiddleNameField" promptText="Middle Name" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                             <ChoiceBox fx:id="fatherNameExtensionField" prefHeight="35.0" prefWidth="100.0" style="-fx-font-size: 12px;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                           </GridPane>
+
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 12px; -fx-padding-top: 10;" text="Mother's Maiden Name" />
+                           <GridPane hgap="15.0" vgap="10.0">
+                             <columnConstraints>
+                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                             </columnConstraints>
+
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Surname" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="First Name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Middle Name" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+
+                             <TextField fx:id="motherSurnameField" promptText="Surname" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                             <TextField fx:id="motherFirstNameField" promptText="First Name" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                             <TextField fx:id="motherMiddleNameField" promptText="Middle Name" style="-fx-font-size: 12px; -fx-pref-height: 35;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                           </GridPane>
+
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-padding-top: 15;" text="Children Information" />
+                           <VBox fx:id="childrenContainer" spacing="5.0">
+                              </VBox>
+                           <Button onAction="#addChildField" style="-fx-font-size: 12px; -fx-pref-height: 30; -fx-pref-width: 100;" text="Add Child" />
+                     </VBox>
+
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="III. EDUCATIONAL BACKGROUND" />
+                         
+                         <GridPane hgap="8.0" style="-fx-font-size: 10px;" vgap="8.0">
+                             <Label style="-fx-font-weight: bold;" text="Level" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold;" text="Name of School" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold;" text="Degree/Course" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold;" text="From" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold;" text="To" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold;" text="Units Earned" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold;" text="Year Graduated" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+                             <Label style="-fx-font-weight: bold;" text="Honors Received" GridPane.columnIndex="7" GridPane.rowIndex="0" />
+                             
+                             <Label text="Elementary" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                             <TextField fx:id="elemSchoolField" promptText="School" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                             <TextField fx:id="elemDegreeField" promptText="N/A" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                             <DatePicker fx:id="elemFromDate" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                             <DatePicker fx:id="elemToDate" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                             <TextField fx:id="elemUnitsField" promptText="N/A" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                             <TextField fx:id="elemYearGradField" promptText="YYYY" prefWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                             <TextField fx:id="elemHonorsField" promptText="Honors" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+
+                             <Label text="Secondary" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                             <TextField fx:id="secSchoolField" promptText="School" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                             <TextField fx:id="secDegreeField" promptText="N/A" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                             <DatePicker fx:id="secFromDate" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                             <DatePicker fx:id="secToDate" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                             <TextField fx:id="secUnitsField" promptText="N/A" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                             <TextField fx:id="secYearGradField" promptText="YYYY" prefWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                             <TextField fx:id="secHonorsField" promptText="Honors" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+
+                             <Label text="Vocational" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                             <TextField fx:id="vocSchoolField" promptText="School" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                             <TextField fx:id="vocDegreeField" promptText="Course" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                             <DatePicker fx:id="vocFromDate" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                             <DatePicker fx:id="vocToDate" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                             <TextField fx:id="vocUnitsField" promptText="Units" prefWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                             <TextField fx:id="vocYearGradField" promptText="YYYY" prefWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                             <TextField fx:id="vocHonorsField" promptText="Honors" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+
+                             <Label text="College" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                             <TextField fx:id="colSchoolField" promptText="School" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                             <TextField fx:id="colDegreeField" promptText="Course" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                             <DatePicker fx:id="colFromDate" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                             <DatePicker fx:id="colToDate" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                             <TextField fx:id="colUnitsField" promptText="Units" prefWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                             <TextField fx:id="colYearGradField" promptText="YYYY" prefWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                             <TextField fx:id="colHonorsField" promptText="Honors" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                             
+                             <Label text="Graduate" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                             <TextField fx:id="gradSchoolField" promptText="School" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                             <TextField fx:id="gradDegreeField" promptText="Course" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                             <DatePicker fx:id="gradFromDate" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                             <DatePicker fx:id="gradToDate" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                             <TextField fx:id="gradUnitsField" promptText="Units" prefWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                             <TextField fx:id="gradYearGradField" promptText="YYYY" prefWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                             <TextField fx:id="gradHonorsField" promptText="Honors" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                         </GridPane>
+                     </VBox>
+
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="IV. CIVIL SERVICE ELIGIBILITY" />
+                         <VBox fx:id="eligibilityContainer" spacing="10.0" />
+                         <Button onAction="#addEligibilityField" style="-fx-font-size: 12px; -fx-pref-height: 30; -fx-pref-width: 150;" text="Add Eligibility" />
+                     </VBox>
+                      
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="V. WORK EXPERIENCE" />
+                         <VBox fx:id="workExperienceContainer" spacing="10.0" />
+                         <Button onAction="#addWorkExperienceField" style="-fx-font-size: 12px; -fx-pref-height: 30; -fx-pref-width: 180;" text="Add Work Experience" />
+                     </VBox>
+
+                  </VBox>
+
+                  <VBox prefWidth="515.0" spacing="25.0">
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Government IDs" />
+
+                        <VBox spacing="5.0">
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="GSIS ID No."/>
+                            <TextField fx:id="gsisIdField" promptText="GSIS ID No." style="-fx-font-size: 14px; -fx-pref-height: 35;" />
+                            <padding><Insets bottom="5.0" /></padding> <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="PAG-IBIG ID No."/>
+                            <TextField fx:id="pagibigIdField" promptText="PAG-IBIG ID No." style="-fx-font-size: 14px; -fx-pref-height: 35;" />
+                            <padding><Insets bottom="5.0" /></padding>
+
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="PhilHealth No."/>
+                            <TextField fx:id="philhealthNoField" promptText="PhilHealth No." style="-fx-font-size: 14px; -fx-pref-height: 35;" />
+                            <padding><Insets bottom="5.0" /></padding>
+
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="SSS No."/>
+                            <TextField fx:id="sssNoField" promptText="SSS No." style="-fx-font-size: 14px; -fx-pref-height: 35;" />
+                            <padding><Insets bottom="5.0" /></padding>
+
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="TIN No."/>
+                            <TextField fx:id="tinNoField" promptText="TIN No." style="-fx-font-size: 14px; -fx-pref-height: 35;" />
+                            <padding><Insets bottom="5.0" /></padding>
+
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Agency Employee No."/>
+                            <TextField fx:id="agencyEmployeeNoField" promptText="Agency Employee No." style="-fx-font-size: 14px; -fx-pref-height: 35;" />
+                            </VBox>
+                    </VBox>
+
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Residential Address" />
+                         
+                         <GridPane hgap="15.0" vgap="10.0">
+                           <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="House/Block/Lot No." GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Street" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                           
+                           <TextField fx:id="residentialHouseNoField" promptText="House/Block/Lot No." style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                           <TextField fx:id="residentialStreetField" promptText="Street" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Barangay" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="City/Municipality" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           
+                           <TextField fx:id="residentialBarangayField" promptText="Barangay" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                           <TextField fx:id="residentialCityField" promptText="City/Municipality" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Province" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="ZIP CODE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           
+                           <TextField fx:id="residentialProvinceField" promptText="Province" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                           <TextField fx:id="residentialZipCodeField" promptText="ZIP CODE" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                         </GridPane>
+                     </VBox>
+
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                         <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Permanent Address" />
+                         
+                         <GridPane hgap="15.0" vgap="10.0">
+                           <columnConstraints>
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                           </columnConstraints>
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="House/Block/Lot No." GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Street" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                           
+                           <TextField fx:id="permanentHouseNoField" promptText="House/Block/Lot No." style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                           <TextField fx:id="permanentStreetField" promptText="Street" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Barangay" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="City/Municipality" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           
+                           <TextField fx:id="permanentBarangayField" promptText="Barangay" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                           <TextField fx:id="permanentCityField" promptText="City/Municipality" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Province" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="ZIP CODE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           
+                           <TextField fx:id="permanentProvinceField" promptText="Province" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                           <TextField fx:id="permanentZipCodeField" promptText="ZIP CODE" style="-fx-font-size: 14px; -fx-pref-height: 35;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                         </GridPane>
+                     </VBox>
+
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="System Account Information" />
+                        
+                        <VBox spacing="12.0">
+                           <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Privilege *" />
+                           <ChoiceBox fx:id="privilegeChoiceBox" prefHeight="35.0" prefWidth="300.0" style="-fx-font-size: 14px;" />
+                        </VBox>
+                     </VBox>
+
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="User Photo" />
+                        
+                        <VBox alignment="CENTER" spacing="15.0">
+                           <Pane prefHeight="180.0" prefWidth="180.0" style="-fx-border-color: #cccccc; -fx-border-width: 2px; -fx-background-color: white;">
+                              <children>
+                                 <ImageView fx:id="userImage" fitHeight="160.0" fitWidth="160.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../Images/default_user_img.jpg" />
+                                    </image>
+                                 </ImageView>
+                              </children>
+                           </Pane>
+                           <Button fx:id="selectImageBtn" mnemonicParsing="false" onAction="#selectImg" prefHeight="40.0" prefWidth="200.0" style="-fx-font-size: 14px;" text="Select Image" />
+                           <Label style="-fx-text-fill: #666; -fx-wrap-text: true; -fx-font-size: 12px; -fx-alignment: center;" text="Select a professional photo for the employee's profile" />
+                        </VBox>
+                     </VBox>
+                     <!-- Documents Section -->
+                    <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Documents" />
+
+                        <VBox fx:id="documentsContainer" spacing="10.0" />
+
+                        <VBox spacing="5.0">
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Google Drive URL" />
+                            <TextField fx:id="googleDriveUrlField" promptText="https://drive.google.com/..." style="-fx-font-size: 14px; -fx-pref-height: 35;" />
+                        </VBox>
+                    </VBox>
+                     <VBox spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 20;">
+    <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 10 0;" text="Initial Assignment" />
+    
+            <VBox spacing="12.0">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Department" />
+                <ChoiceBox fx:id="departmentChoiceBox" prefHeight="35.0" prefWidth="300.0" style="-fx-font-size: 14px;" />
+
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Position" />
+                <ChoiceBox fx:id="positionChoiceBox" prefHeight="35.0" prefWidth="300.0" style="-fx-font-size: 14px;" />
+
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Shift" />
+                <ChoiceBox fx:id="shiftChoiceBox" prefHeight="35.0" prefWidth="300.0" style="-fx-font-size: 14px;" />
+
+                <HBox spacing="15.0">
+                    <VBox spacing="5.0">
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Start Time" />
+                        <TextField fx:id="startTimeField" promptText="HH:MM (24h)" style="-fx-font-size: 14px; -fx-pref-height: 35; -fx-pref-width: 140;" />
+                    </VBox>
+                    <VBox spacing="5.0">
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="End Time" />
+                        <TextField fx:id="endTimeField" promptText="HH:MM (24h)" style="-fx-font-size: 14px; -fx-pref-height: 35; -fx-pref-width: 140;" />
+                    </VBox>
+                </HBox>
+
+                <CheckBox fx:id="addAssignmentCheckbox" text="Add initial assignment" selected="true" style="-fx-font-size: 14px;" />
+            </VBox>
+        </VBox>
+                  </VBox>
+               </HBox>
+
+               <HBox alignment="CENTER" spacing="20.0" style="-fx-padding: 20 0 0 0;">
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-pref-height: 40; -fx-pref-width: 150;" text="Cancel" />
+                  <Button fx:id="addEmployeeBtn" mnemonicParsing="false" onAction="#addEmployee" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-pref-height: 45; -fx-pref-width: 200;" text="Add Employee" />
+               </HBox>
+
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" focusTraversable="false" prefHeight="1060.0" prefWidth="1640.0" stylesheets="@../Style/admin_pane.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.ADMIN_DashboardCTRL">
+   <children>
+      <Pane layoutX="30.0" layoutY="30.0" prefHeight="80.0" prefWidth="1580.0" styleClass="tilePane">
+         <children>
+            <Label layoutX="20.0" layoutY="15.0" style="-fx-text-fill: #1a1a1a;" text="Dashboard" textFill="#1a1a1a">
+               <font>
+                  <Font name="System Bold" size="42.0" />
+               </font>
+            </Label>
+            <Button fx:id="adminMenuButton" focusTraversable="false" layoutX="1351.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleAdminMenu" prefHeight="65.0" prefWidth="233.0" styleClass="admin-menu-button">
+               <graphic>
+                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="197.0" spacing="8.0">
+                     <children>
+                        <ImageView fx:id="userImageView" fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" styleClass="admin-profile-image">
+                           <image>
+                              <Image url="@../Images/default_user_img.jpg" />
+                           </image>
+                           <clip>
+                              <Circle centerX="29.0" centerY="29.0" radius="29.0" />
+                           </clip>
+                        </ImageView>
+                        <Label prefHeight="23.0" prefWidth="63.0" style="-fx-font-size: 20px; -fx-text-fill: #1a1a1a;" text="Admin" textFill="#1a1a1a">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="35.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/arrow-down.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+
+     <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" 
+                  layoutX="30.0" layoutY="120.0" prefHeight="920.0" prefWidth="1580.0" 
+                  styleClass="scroll-pane" 
+                  onMouseClicked="#handleBackgroundClick"
+                  stylesheets="@../Style/dashboardBarChart.css" vbarPolicy="AS_NEEDED"
+                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="120.0">
+         <content>
+            <AnchorPane focusTraversable="false" minHeight="1400.0" onMouseClicked="#handleBackgroundClick" prefWidth="1560.0">
+               <children>
+                  
+                  <Pane fx:id="piePane" focusTraversable="false" layoutX="2.0" layoutY="10.0" prefHeight="349.0" prefWidth="556.0" styleClass="tilePane">
+                     <children>
+                        <PieChart fx:id="pieChart" focusTraversable="false" labelsVisible="true" layoutX="50.0" layoutY="49.0" legendSide="RIGHT" prefHeight="301.0" prefWidth="480.0" />
+                        <Label layoutX="25.0" layoutY="20.0" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="Punctuality Overview">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="455.0" layoutY="26.0" style="-fx-text-fill: #e74c3c;" text="Late Today" textFill="#e74c3c">
+                           <font>
+                               <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="attendancePercentLabel" alignment="CENTER" layoutX="409.0" layoutY="45.0" prefHeight="60.0" prefWidth="160.0" style="-fx-text-fill: #e74c3c;" text="0" textFill="#e74c3c">
+                           <font>
+                              <Font name="System Bold" size="44.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+
+                  <Pane focusTraversable="false" layoutX="578.0" layoutY="9.0" prefHeight="350.0" prefWidth="573.0" styleClass="tilePane">
+                     <children>
+                        <BarChart fx:id="barChart" barGap="5.0" categoryGap="20.0" focusTraversable="false" layoutX="15.0" layoutY="52.0" legendSide="TOP" prefHeight="250.0" prefWidth="538.0">
+                           <xAxis>
+                              <CategoryAxis fx:id="categoryAxis" side="BOTTOM" tickLabelRotation="0">
+                                 <tickLabelFont>
+                                    <Font name="System Bold" size="12.0" />
+                                 </tickLabelFont>
+                              </CategoryAxis>
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="numberAxis" label="Count" side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <Label layoutX="25.0" layoutY="20.0" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="Tardiness Heatmap">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="insightLabel" alignment="CENTER" layoutX="25.0" layoutY="310.0" prefHeight="30.0" prefWidth="523.0" style="-fx-text-fill: #555555;" text="Insight: Calculating..." textFill="#555555" wrapText="true">
+                           <font>
+                              <Font name="System Italic" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+
+                  <Pane fx:id="totalEmployeesPane" focusTraversable="false" layoutX="1163.0" layoutY="8.0" prefHeight="100.0" prefWidth="200.0" styleClass="tilePane">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" prefHeight="25.0" prefWidth="170.0" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="TOTAL EMPLOYEES">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="totalEmployeesLabel" alignment="BOTTOM_LEFT" layoutX="17.0" layoutY="30.0" opacity="0.8" prefHeight="65.0" prefWidth="183.0" style="-fx-text-fill: #333333;" text="0">
+                           <font>
+                              <Font name="System Bold" size="40.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="8.0" right="15.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="137.0" layoutY="43.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/team%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+
+                  <Pane fx:id="presentTodayPane" focusTraversable="false" layoutX="1378.0" layoutY="8.0" prefHeight="100.0" prefWidth="200.0" styleClass="tilePane">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" prefHeight="25.0" prefWidth="170.0" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="PRESENT TODAY">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="presentTodayLabel" alignment="BOTTOM_LEFT" layoutX="15.0" layoutY="30.0" opacity="0.8" prefHeight="65.0" prefWidth="183.0" style="-fx-text-fill: #333333;" text="0">
+                           <font>
+                              <Font name="System Bold" size="40.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="8.0" right="15.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="147.0" layoutY="47.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/employee.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+
+                  <Pane fx:id="totalAbsentPane" focusTraversable="false" layoutX="1163.0" layoutY="123.0" prefHeight="100.0" prefWidth="200.0" styleClass="tilePane">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" prefHeight="25.0" prefWidth="170.0" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="TOTAL ABSENT">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="totalAbsentLabel" alignment="BOTTOM_LEFT" layoutX="17.0" layoutY="30.0" opacity="0.8" prefHeight="65.0" prefWidth="183.0" style="-fx-text-fill: #333333;" text="0">
+                           <font>
+                              <Font name="System Bold" size="40.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="8.0" right="15.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="143.0" layoutY="46.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/employeeabsent.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+
+                  <Pane fx:id="onLeaveTodayPane" focusTraversable="false" layoutX="1378.0" layoutY="123.0" prefHeight="100.0" prefWidth="200.0" styleClass="tilePane">
+                     <children>
+                        <Label layoutX="15.0" layoutY="10.0" prefHeight="25.0" prefWidth="170.0" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="ON LEAVE TODAY">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="onLeaveTodayLabel" alignment="BOTTOM_LEFT" layoutX="15.0" layoutY="30.0" opacity="0.8" prefHeight="65.0" prefWidth="183.0" style="-fx-text-fill: #333333;" text="0">
+                           <font>
+                              <Font name="System Bold" size="40.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="8.0" right="15.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="139.0" layoutY="40.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/dismissal.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="milestonePane" focusTraversable="false" layoutX="1164.0" layoutY="235.0" prefHeight="125.0" prefWidth="415.0" styleClass="tilePane">
+                    <children>
+                       <Label layoutX="15.0" layoutY="10.0" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="Upcoming Milestones">
+                          <font>
+                             <Font size="16.0" />
+                          </font>
+                       </Label>
+                       <Label fx:id="quoteLabel" alignment="TOP_LEFT" layoutX="15.0" layoutY="40.0" prefHeight="70.0" prefWidth="387.0" style="-fx-font-style: italic; -fx-font-size: 16px; -fx-text-fill: #4d4d4d;" text="Loading milestones..." wrapText="true" />
+                    </children>
+                 </Pane>
+
+                  <Pane focusTraversable="false" layoutX="1164.0" layoutY="930.0" prefHeight="430.0" prefWidth="415.0" styleClass="tilePane">
+                    <children>
+                       <Label layoutX="20.0" layoutY="15.0" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="Top Performers (This Month)">
+                          <font>
+                             <Font size="20.0" />
+                          </font>
+                       </Label>
+
+                       <Separator layoutX="20.0" layoutY="50.0" prefWidth="375.0" />
+
+                       <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="70.0" prefHeight="100.0" prefWidth="375.0" spacing="15.0" style="-fx-background-color: #fff9e6; -fx-background-radius: 10; -fx-padding: 10; -fx-border-color: #f1c40f; -fx-border-radius: 10; -fx-border-width: 0.5;">
+                          <children>
+                             <ImageView fx:id="earlyBirdImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                   <Image url="@../Images/default_user_img.jpg" /> 
+                                </image>
+                                <clip>
+                                   <Circle centerX="30.0" centerY="30.0" radius="30.0" />
+                                </clip>
+                             </ImageView>
+                             <VBox alignment="CENTER_LEFT" spacing="2.0">
+                                <children>
+                                   <Label text="EARLY BIRD AWARD" textFill="#f39c12">
+                                      <font>
+                                         <Font name="System Bold" size="12.0" />
+                                      </font>
+                                   </Label>
+                                   <Label fx:id="earlyBirdName" text="Loading..." textFill="#333333">
+                                      <font>
+                                         <Font name="System Bold" size="18.0" />
+                                      </font>
+                                   </Label>
+                                   <Label fx:id="earlyBirdTime" text="--:-- AM" textFill="#7f8c8d">
+                                      <font>
+                                         <Font name="System Italic" size="14.0" />
+                                      </font>
+                                   </Label>
+                                </children>
+                             </VBox>
+                          </children>
+                       </HBox>
+
+                       <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="190.0" prefHeight="100.0" prefWidth="375.0" spacing="15.0" style="-fx-background-color: #eafaf1; -fx-background-radius: 10; -fx-padding: 10; -fx-border-color: #2ecc71; -fx-border-radius: 10; -fx-border-width: 0.5;">
+                          <children>
+                             <ImageView fx:id="ironManImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                   <Image url="@../Images/default_user_img.jpg" />
+                                </image>
+                                <clip>
+                                   <Circle centerX="30.0" centerY="30.0" radius="30.0" />
+                                </clip>
+                             </ImageView>
+                             <VBox alignment="CENTER_LEFT" spacing="2.0">
+                                <children>
+                                   <Label text="IRON MAN (PERFECT ATTENDANCE)" textFill="#27ae60">
+                                      <font>
+                                         <Font name="System Bold" size="11.0" />
+                                      </font>
+                                   </Label>
+                                   <Label fx:id="ironManName" text="Loading..." textFill="#333333">
+                                      <font>
+                                         <Font name="System Bold" size="18.0" />
+                                      </font>
+                                   </Label>
+                                   <Label fx:id="ironManStreak" text="0 Days Streak" textFill="#7f8c8d">
+                                      <font>
+                                         <Font name="System Italic" size="14.0" />
+                                      </font>
+                                   </Label>
+                                </children>
+                             </VBox>
+                          </children>
+                       </HBox>
+
+                       <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="310.0" prefHeight="100.0" prefWidth="375.0" spacing="15.0" style="-fx-background-color: #ebf5fb; -fx-background-radius: 10; -fx-padding: 10; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-border-width: 0.5;">
+                          <children>
+                             <ImageView fx:id="dynamoImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                   <Image url="@../Images/default_user_img.jpg" />
+                                </image>
+                                <clip>
+                                   <Circle centerX="30.0" centerY="30.0" radius="30.0" />
+                                </clip>
+                             </ImageView>
+                             <VBox alignment="CENTER_LEFT" spacing="2.0">
+                                <children>
+                                   <Label text="THE DYNAMO (MOST HOURS)" textFill="#2980b9">
+                                      <font>
+                                         <Font name="System Bold" size="11.0" />
+                                      </font>
+                                   </Label>
+                                   <Label fx:id="dynamoName" text="Loading..." textFill="#333333">
+                                      <font>
+                                         <Font name="System Bold" size="18.0" />
+                                      </font>
+                                   </Label>
+                                   <Label fx:id="dynamoStreak" text="0 Hours Logged" textFill="#7f8c8d">
+                                      <font>
+                                         <Font name="System Italic" size="14.0" />
+                                      </font>
+                                   </Label>
+                                </children>
+                             </VBox>
+                          </children>
+                       </HBox>
+
+                    </children>
+                 </Pane>
+
+                  <Pane fx:id="piePane1" focusTraversable="false" layoutX="0.0" layoutY="380.0" prefHeight="530.0" prefWidth="1152.0" styleClass="tilePane">
+                     <children>
+                        <Label layoutX="25.0" layoutY="20.0" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="Recent Attendance">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="recentAttendanceTable" focusTraversable="false" layoutX="25.0" layoutY="60.0" prefHeight="440.0" prefWidth="1113.0" style="-fx-font-size: 16px;">
+                           <columns>
+                              <TableColumn fx:id="col_emp_id" minWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="Emp. ID" />
+                              <TableColumn fx:id="col_name" minWidth="230.0" prefWidth="230.0" text="Name" />
+                              <TableColumn fx:id="col_am_in" minWidth="94.0" prefWidth="90.0" style="-fx-alignment: center;" text="AM IN" />
+                              <TableColumn fx:id="col_am_out" minWidth="94.0" prefWidth="90.0" style="-fx-alignment: center;" text="AM OUT" />
+                              <TableColumn fx:id="col_pm_in" minWidth="94.0" prefWidth="90.0" style="-fx-alignment: center;" text="PM IN" />
+                              <TableColumn fx:id="col_pm_out" minWidth="94.0" prefWidth="90.0" style="-fx-alignment: center;" text="PM OUT" />
+                              <TableColumn fx:id="col_ot_in" minWidth="94.0" prefWidth="90.0" style="-fx-alignment: center;" text="OT IN" />
+                              <TableColumn fx:id="col_ot_out" minWidth="94.0" prefWidth="90.0" style="-fx-alignment: center;" text="OT OUT" />
+                              <TableColumn fx:id="col_pos" minWidth="220.0" prefWidth="220.0" text="Position" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+
+                  <Pane fx:id="piePane21111221" focusTraversable="false" layoutX="1164.0" layoutY="380.0" prefHeight="530.0" prefWidth="415.0" styleClass="tilePane">
+                     <children>
+                        <VBox layoutX="15.0" layoutY="15.0" prefHeight="500.0" prefWidth="385.0" spacing="10.0">
+                           <children>
+                              <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Activity Log" />
+                              <Separator prefWidth="200.0" />
+                              <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" prefHeight="450.0" prefWidth="385.0" style="-fx-background: transparent; -fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="activityLogVBox" spacing="8.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+
+                  <Pane focusTraversable="false" layoutX="0.0" layoutY="930.0" prefHeight="430.0" prefWidth="1152.0" styleClass="tilePane">
+                     <children>
+                        <BarChart fx:id="departmentRankingChart" barGap="5.0" categoryGap="20.0" focusTraversable="false" layoutX="15.0" layoutY="50.0" legendSide="TOP" prefHeight="330.0" prefWidth="1120.0">
+                           <xAxis>
+                              <CategoryAxis fx:id="deptCategoryAxis" side="BOTTOM" tickLabelRotation="0">
+                                 <tickLabelFont>
+                                    <Font name="System Bold" size="12.0" />
+                                 </tickLabelFont>
+                              </CategoryAxis>
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="deptNumberAxis" label="Employees Present (%)" side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <Label layoutX="25.0" layoutY="15.0" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="Department Attendance Ranking (Present Today)">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

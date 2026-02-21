@@ -1,0 +1,44 @@
+# ===== Maven =====
+target/
+dependency-reduced-pom.xml
+
+# ===== IDE (NetBeans / IntelliJ / VS Code) =====
+nbproject/private/
+nbbuild/
+nbdist/
+nb-configuration.xml
+nbactions.xml
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# ===== Sensitive / Secret Files =====
+src/main/resources/config.properties
+
+# ===== OS Generated =====
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+
+# ===== Personal Documents (DTR / PDS) =====
+SEPTEMBER_2025_DTR/
+OCTOBER_2025_DTR/
+NOVEMBER_2025_DTR/
+*_DTR/
+*.pdf
+
+# ===== Misc =====
+package script.txt
+*.log
+*.tmp
+*.bak
+
+# ===== Binaries in resources (not source code) =====
+src/main/resources/Images/wps_office_inst.exe
+
+# ===== GitHub Copilot generated =====
+.github/java-upgrade/

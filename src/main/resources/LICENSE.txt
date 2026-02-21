@@ -1,0 +1,37 @@
+END USER LICENSE AGREEMENT (EULA)
+For IEMS Application
+
+IMPORTANT: PLEASE READ THIS LICENSE AGREEMENT CAREFULLY BEFORE INSTALLING OR USING THE SOFTWARE.
+
+This End-User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and RRK Solutions ("Licensor") for the IEMS Application software product, which includes computer software and may include associated media, printed materials, and "online" or electronic documentation ("Software").
+
+By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this EULA. If you do not agree to the terms of this EULA, do not install or use the Software.
+
+1. GRANT OF LICENSE
+RRK Solutions grants you a revocable, non-exclusive, non-transferable, limited license to download, install, and use the Software solely for your internal business purposes strictly in accordance with the terms of this Agreement.
+
+2. RESTRICTIONS on USE
+You agree not to, and you will not permit others to:
+   a) License, sell, rent, lease, assign, distribute, transmit, host, outsource, disclose, or otherwise commercially exploit the Software or make the Software available to any third party.
+   b) Modify, make derivative works of, disassemble, decrypt, reverse compile, or reverse engineer any part of the Software.
+   c) Remove, alter, or obscure any proprietary notice (including any notice of copyright or trademark) of RRK Solutions or its affiliates, partners, suppliers, or the licensors of the Software.
+
+3. INTELLECTUAL PROPERTY
+The Software, including without limitation all copyrights, patents, trademarks, trade secrets, and other intellectual property rights are, and shall remain, the sole and exclusive property of RRK Solutions.
+
+4. DATA PRIVACY AND SECURITY
+You acknowledge that the Software processes sensitive personal information (including but not limited to biometric data, personal data sheets, and employment records). You agree that you are solely responsible for obtaining all necessary consents from your employees and for complying with the Data Privacy Act of 2012 (Republic Act No. 10173) and other applicable privacy laws regarding the collection, storage, and protection of such data. RRK Solutions shall not be liable for any data breaches resulting from your negligence or misuse of the Software.
+
+5. TERM AND TERMINATION
+This Agreement shall remain in effect until terminated by you or RRK Solutions. RRK Solutions may, in its sole discretion, at any time and for any or no reason, suspend or terminate this Agreement with or without prior notice. This Agreement will terminate immediately, without prior notice from RRK Solutions, in the event that you fail to comply with any provision of this Agreement.
+
+6. DISCLAIMER OF WARRANTY
+The Software is provided to you "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, RRK Solutions expressly disclaims all warranties, whether express, implied, statutory, or otherwise, including all implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.
+
+7. LIMITATION OF LIABILITY
+In no event shall RRK Solutions be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Software).
+
+8. GOVERNING LAW
+This Agreement shall be governed by and construed in accordance with the laws of the Philippines.
+
+Copyright (c) 2025 RRK Solutions. All rights reserved.

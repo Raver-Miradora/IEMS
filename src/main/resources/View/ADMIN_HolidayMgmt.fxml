@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1060.0" prefWidth="1640.0" stylesheets="@../Style/admin_pane.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.raver.iemsmaven.Controller.ADMIN_HolidayMgmtCTRL">
+   <children>
+      <Pane layoutX="15.0" layoutY="15.0" prefHeight="1030.0" prefWidth="1615.0" style="-fx-font-size: 18px;">
+         <children>
+            <Pane layoutX="15.0" layoutY="16.0" prefHeight="991.0" prefWidth="1578.0" styleClass="tilePane">
+               <children>
+                  <Label layoutX="29.0" layoutY="18.0" prefHeight="53.0" prefWidth="407.0" style="-fx-font-size: 42px; -fx-font-weight: bold;" text="Manage Holiday">
+                     <font>
+                        <Font name="System Bold" size="42.0" />
+                     </font>
+                  </Label>
+                  
+                  <HBox layoutX="1170.0" layoutY="74.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="36.0" prefWidth="56.0" style="-fx-font-size: 16px; -fx-text-fill: black;" text="Search:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="searchField" prefHeight="35.0" prefWidth="321.0" promptText="Search holidays..." style="-fx-font-size: 14px;" />
+                     </children>
+                  </HBox>
+                  
+                 <TableView fx:id="holidayTable" layoutX="23.0" layoutY="130.0" prefHeight="827.0" prefWidth="1538.0">
+                    <columns>
+                        <TableColumn fx:id="dateCol" prefWidth="200.0" text="Date" />
+                        <TableColumn fx:id="holidayNameCol" prefWidth="200.0" text="Holiday" visible="false" />
+                        <TableColumn fx:id="descriptionCol" minWidth="450.0" prefWidth="300.0" text="Description" />
+                        <TableColumn fx:id="attachmentCol" minWidth="440.0" prefWidth="300.0" text="Attachment" />
+                        <TableColumn fx:id="actionsCol" minWidth="450.0" prefWidth="120.0" text="Actions" />
+                    </columns>
+                </TableView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
