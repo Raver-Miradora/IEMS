@@ -11,14 +11,15 @@ import java.sql.*;
  * @author admin
  */
 public class DatabaseUtil {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/test19";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "";
     
     public static Connection getConnection(){
         Connection connection;
         try{
-            connection = DriverManager.getConnection(DB_URL,DB_USER,DB_PASSWORD);
+            connection = DriverManager.getConnection(
+                Config.getDbUrl(),
+                Config.getDbUser(),
+                Config.getDbPassword()
+            );
             return connection;
         }catch(Exception e){
             e.printStackTrace();
